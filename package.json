@@ -1,0 +1,14 @@
+{
+  "name": "tanay-portfolio",
+  "version": "1.0.0",
+  "description": "The new and final NodeJS Portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Portfolio"
+  ],
+  "author": "Tanay Mehta",
+  "license": "MIT"
+}

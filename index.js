@@ -1,22 +1,20 @@
 const path = require('path');
 const express = require('express');
 const app = new express();
-var gp = require("./generate_project");
+var gp = require("./getProjects");
 
-PORT = 9999
+var PORT = 9999
+var PROJECTS_TO_SHOW = 4
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-// Render the HTML (that was in form of string) as new article
-// Currently only one though.
-/* 
-TODO: 1. Add functionality to add any number of articles. 
-*/
-
 app.get('/', (req, res) => {
-    res.render('home', {project: gp.get_project("aa")});
+    // This renders the home page.
+    // We are also invoking the getProjects.js script here that does the heavy work of getting the latest projects from my Github Repo.
+    var allProjects = gp.get_project(PROJECTS_TO_SHOW)
+    res.render('home', {projects: allProjects, num_projects: PROJECTS_TO_SHOW});
 });
 
 app.listen(PORT, () => {

@@ -1,0 +1,23 @@
+{
+  "name": "final-portfolio",
+  "version": "1.0.0",
+  "description": "This repository is being constructed so that I can have a final portfolio web application that will be stable, maintainable, usable and long-term. Previously, I was building a portfolio every year but did not do further to change/improve it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch scss -o css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heytanay/final-portfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heytanay/final-portfolio/issues"
+  },
+  "homepage": "https://github.com/heytanay/final-portfolio#readme",
+  "dependencies": {
+    "node-sass": "^5.0.0"
+  }
+}

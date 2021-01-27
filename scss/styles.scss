@@ -999,3 +999,15 @@ footer {
     }
 
 }
+
+::-moz-selection { /* Code for Firefox */
+    color: white;
+    // background: rgb(123, 45, 212);
+    background: purple;
+  }
+  
+  ::selection {
+    color: white;
+    // background: rgb(123, 45, 212);
+    background: purple;
+  }

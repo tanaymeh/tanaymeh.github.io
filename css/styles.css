@@ -705,3 +705,12 @@ footer {
   #lead-content a {
     font-size: 0.9em;
     padding: 5px 10px; } }
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: white;
+  background: purple; }
+
+::selection {
+  color: white;
+  background: purple; }

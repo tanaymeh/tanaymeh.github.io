@@ -15,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/043883177b.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;1,300&family=Nunito+Sans&family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=PT+Sans:wght@400;700&family=Raleway:wght@700&display=swap" rel="stylesheet">
 </head>
 
@@ -163,41 +164,85 @@
         <h2 class="heading" style="font-family: 'Lobster', cursive;">Projects</h2>
         <div class="container">
             <div class="row">
+                <!-- PROJECT - 1 -->
                 <div class="project shadow-large">
                     <div class="project-image">
-                        <img src="images/project.jpg" />
+                        <img src="images/project1_img.png" width="300px" height="300px"/>
                     </div>
-                    <!-- End .project-image -->
                     <div class="project-info">
-                        <h3>Project Name Here</h3>
+                        <h3>Leaf Disease Classification</h3>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat.
+                            This is the codebase which houses a Model, DataLoader, Augmentations and a Trainer Class (all written from Scratch in PyTorch) which detects Leafs with Diseases as a part of Cassava Leaf Disease Classification Challenge on Kaggle.<br> 
+                            Due to data imbalance, noisy labels and variable image sizes, I had to use techniques such as <strong>Pseudo-Labelling</strong> and <strong>Bi-Tempered Logistic Loss</strong>, etc to get good score in Classification.
                         </p>
-                        <a href="#">View Project</a>
+                        <i class="fab fa-github" aria-hidden="true"> <a href="https://github.com/heytanay/leaf-disease-detection" style="font-family: 'Nunito Sans', sans-serif; font-size:17px;">View on Github</a></i>
+                        &emsp;
+                        <i class="fab fa-kaggle" aria-hidden="true"> <a href="https://www.kaggle.com/heyytanay/torch-multi-model-trainer-amp-augmentations" style="font-family: 'Nunito Sans', sans-serif; font-size:17px;">View on Kaggle</a></i>
                     </div>
-                    <!-- End .project-info -->
                 </div>
-                <!-- End .project -->
 
+                <!-- PROJECT - 2 -->
                 <div class="project shadow-large">
                     <div class="project-image">
-                        <img src="images/project.jpg" />
+                        <img src="images/project2_img.png" width="300px" height="300px"/>
                     </div>
-                    <!-- End .project-image -->
                     <div class="project-info">
-                        <h3>Project Name Here</h3>
+                        <h3>Pneumonia Detection from Chest X-Rays</h3>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat.
+                            I have made a Deep Convolutional Neural Network to classify between Chest X-Rays that have Pneumonia and those that donot. 
+                            In this task, I have achieved an accuracy of 84% on highly skewed dataset with noisy labels.
+                            Along with the classification, I have also done very detailed Exploratory Data Analysis on the dataset and extracted usefull information from that. 
+                            <br>
+                            I have also deployed a Web App that classifies any chest-xray into one of the 2 categories.
                         </p>
-                        <a href="#">View Project</a>
+                        <i class="fab fa-github" aria-hidden="true"> <a href="https://github.com/heytanay/pneumonia-detection" style="font-family: 'Nunito Sans', sans-serif; font-size:17px;">View on Github</a></i>
+                        &emsp;
+                        <i class="fab fa-kaggle" aria-hidden="true"> <a href="https://www.kaggle.com/heyytanay/xray-image-eda-classification-keras" style="font-family: 'Nunito Sans', sans-serif; font-size:17px;">View on Kaggle</a></i>
+                        &emsp;
+                        <i class="fab fa-chrome" aria-hidden="true"> <a href="https://chest-xray-app-tanay.herokuapp.com/" style="font-family: 'Nunito Sans', sans-serif; font-size:17px;">View Web App</a></i>
                     </div>
-                    <!-- End .project-info -->
                 </div>
-                <!-- End .project -->
+
+                <!-- PROJECT - 3 -->
+                <div class="project shadow-large">
+                    <div class="project-image">
+                        <img src="images/project3_img.png" width="300px" height="300px"/>
+                    </div>
+                    <div class="project-info">
+                        <h3>Melanoma Cancer Detection (SIIM-ISIC Challenge)</h3>
+                        <p>
+                            In this project, I performed extensive Exploratory Data Analysis, and trained a deep learning model (using PyTorch) to detect Melanoma Cancer from highly-imbalanced dataset of over 100GBs of size.
+                            <br>
+                            The target label (Malignant) consisted of only <i>1.8%</i> of the entire dataset hence K-Fold Cross Validation along with Custom Loss functions and numerous augmentations were used.
+                        </p>
+                        <i class="fab fa-github" aria-hidden="true"> <a href="https://github.com/heytanay/melanoma-cancer-detection" style="font-family: 'Nunito Sans', sans-serif; font-size:17px;">View on Github</a></i>
+                        &emsp;
+                        <i class="fab fa-kaggle" aria-hidden="true"> <a href="https://www.kaggle.com/heyytanay/siim-isic-all-you-need-to-get-started" style="font-family: 'Nunito Sans', sans-serif; font-size:17px;">View on Kaggle</a></i>
+                    </div>
+                </div>
+
+                <!-- PROJECT - 4 -->
+                <div class="project shadow-large">
+                    <div class="project-image">
+                        <img src="images/project4_img.jpg" width="300px" height="300px"/>
+                    </div>
+                    <div class="project-info">
+                        <h3>Jet Hadron Collider Data Compression using Autoencoders</h3>
+                        <p>
+                            This project contains a Stacked Auto Encoder made in order to compress Hadron Jet Data from 4->3 Variables. I have used a Stacked Autoencoder of 3D Latent Dimensions. This way the SAE is decompressing 4D data into 3D thus reducing the space it takes.
+                            <br>
+                            The Model currently performs "OK-ish" - judging from the final loss. 
+                            <br>
+                            The Reconstruction Loss (Mean Squared error measuring the distance between original data and the reconstructed data) after 350 epochs on training closes to about <strong>0.03</strong>
+                        </p>
+                        <i class="fab fa-github" aria-hidden="true"> <a href="https://github.com/heytanay/jet-data-compression" style="font-family: 'Nunito Sans', sans-serif; font-size:17px;">View on Github</a></i>
+                        <!-- &emsp; -->
+                        <!-- <i class="fab fa-kaggle" aria-hidden="true"> <a href="https://www.kaggle.com/heyytanay/torch-multi-model-trainer-amp-augmentations" style="font-family: 'Nunito Sans', sans-serif; font-size:17px;">View on Kaggle</a></i> -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <!-- End #projects -->
 
     <!-- Certifications -->
     <div class="optional-section background-alt" id="certifications">

@@ -101,15 +101,15 @@ header {
     display: inline-block; }
   header a {
     display: block;
-    color: #120be8;
+    color: #3036a8;
     padding: 10px; }
     header a:hover {
-      color: #0e09b7;
+      color: #252980;
       text-decoration: none;
       background: #eee;
       border-radius: 4px; }
     header a:focus {
-      color: #120be8;
+      color: #3036a8;
       text-decoration: none; }
   header.active {
     display: block; }
@@ -126,7 +126,7 @@ header {
   position: fixed;
   right: 15px;
   top: 10px;
-  color: #120be8;
+  color: #3036a8;
   font-size: 1.5em;
   z-index: 20;
   padding: 0 7px;
@@ -142,7 +142,7 @@ header {
   padding-right: 15px;
   padding-top: 10px;
   cursor: pointer;
-  color: #120be8; }
+  color: #3036a8; }
   #mobile-menu-close span {
     font-size: 0.5em;
     text-transform: uppercase; }
@@ -186,7 +186,7 @@ footer {
     color: #74808a;
     padding: 10px; }
     .social a:hover {
-      color: #120be8; }
+      color: #3036a8; }
 
 .btn-rounded-white {
   display: inline-block;
@@ -196,7 +196,7 @@ footer {
   border-radius: 30px;
   transition: 0.5s ease all; }
   .btn-rounded-white:hover {
-    color: #120be8;
+    color: #3036a8;
     background: #fff;
     text-decoration: none; }
 
@@ -221,7 +221,7 @@ footer {
     left: 0;
     right: 0;
     margin: 0 auto;
-    background: #120be8; }
+    background: #3036a8; }
 
 .background-alt {
   background: #f2f2f5; }
@@ -236,7 +236,7 @@ footer {
   height: 100vh;
   min-height: 500px;
   max-height: 1080px;
-  background: url(../images/supernova_2-wallpaper-1920x1080.jpg);
+  background: url(../images/pexels-tyler-lastovich-997443.jpg);
   background-size: cover;
   padding: 15px;
   overflow: hidden; }
@@ -258,7 +258,7 @@ footer {
     letter-spacing: 0.05em;
     line-height: 0.9em; }
   #lead-content h2 {
-    color: #7e7af9;
+    color: #7e82da;
     font-weight: 500;
     font-size: 2.25em;
     margin-bottom: 15px; }
@@ -271,7 +271,7 @@ footer {
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(14, 9, 183, 0.8);
+  background: rgba(37, 41, 128, 0.8);
   z-index: 1; }
 
 #lead-down {
@@ -290,7 +290,7 @@ footer {
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    border: 3px solid #7e7af9;
+    border: 3px solid #7e82da;
     text-align: center; }
   #lead-down i {
     animation: pulsate 1.5s ease;
@@ -344,15 +344,15 @@ footer {
     right: auto;
     height: 100%;
     width: 3px;
-    background: #120be8;
+    background: #3036a8;
     z-index: 0; }
   #experience-timeline:after {
     position: absolute;
     content: '';
     width: 3px;
     height: 40px;
-    background: #120be8;
-    background: linear-gradient(to bottom, #120be8, rgba(18, 11, 232, 0));
+    background: #3036a8;
+    background: linear-gradient(to bottom, #3036a8, rgba(48, 54, 168, 0));
     top: 100%;
     left: 303px; }
 
@@ -390,7 +390,7 @@ footer {
   color: #fff;
   width: 50px;
   height: 50px;
-  background: #120be8;
+  background: #3036a8;
   border-radius: 50%;
   float: left;
   z-index: 99;
@@ -530,7 +530,7 @@ footer {
 */
 #contact {
   padding: 50px 15px;
-  background: #120be8;
+  background: #3036a8;
   text-align: center; }
   #contact h2 {
     margin: 0 0 15px 0;
@@ -547,7 +547,7 @@ footer {
     border-radius: 4px;
     border: none;
     margin-bottom: 10px;
-    background: #0c089f;
+    background: #1f236d;
     color: #fff;
     transition: 0.5s ease all; }
     #contact-form input::-webkit-input-placeholder, #contact-form textarea::-webkit-input-placeholder {
@@ -562,7 +562,7 @@ footer {
       color: #fff; }
     #contact-form input:focus, #contact-form textarea:focus {
       outline: none;
-      background: #09056e; }
+      background: #141645; }
   #contact-form textarea {
     height: 150px;
     resize: none; }
@@ -573,7 +573,7 @@ footer {
     border-radius: 4px;
     padding: 5px 10px;
     border: none;
-    color: #120be8;
+    color: #3036a8;
     font-weight: 700;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: 0.5s ease all; }

@@ -17,7 +17,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <script src="https://kit.fontawesome.com/043883177b.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;1,300&family=Nunito+Sans&family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=PT+Sans:wght@400;700&family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"/>
 </head>
+
+<script
+  src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js">
+</script>
 
 <body>
     <div id="mobile-menu-open" class="shadow-large">
@@ -178,7 +183,7 @@
     <!-- End #education -->
 
     <div id="projects" class="background-alt">
-        <h2 class="heading" style="font-family: 'Lobster', cursive;">Projects</h2>
+        <h2 class="heading" style="font-family: 'Lobster', cursive;">Projects & Github</h2>
         <div class="container">
             <div class="row">
                 <!-- PROJECT - 1 -->
@@ -310,6 +315,18 @@
                 </div>
             </div>
         </div>
+        <br>
+        <!-- <h2>My Github Sta</h2> -->
+        <div class="calendar" style="max-width: 900px;margin:auto; border: none">
+            <!-- Loading stuff -->
+            Loading Github Stats
+        </div>
+        <script>
+            // GitHubCalendar(".calendar", "your-username");
+        
+            // or enable responsive functionality:
+            GitHubCalendar(".calendar", "heytanay", { responsive: true });
+        </script>
     </div>
 
     <!-- Extra Curricular and Achievements -->
@@ -426,8 +443,6 @@
             </div>
         </div>
     </div>
-
-    
 
     <div id="skills">
         <h2 class="heading" style="font-family: 'Lobster', cursive;">Skills</h2>

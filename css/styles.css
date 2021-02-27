@@ -263,6 +263,26 @@ footer {
     font-size: 2.25em;
     margin-bottom: 15px; }
 
+/* #top-links:a:visited{
+  text-decoration:none;
+} */
+
+/* #lead-content:a:visited{
+  text-decoration: none;
+}
+
+#lead-content:a:link{
+  text-decoration: none;
+}
+
+#lead-content:a:hover{
+  text-decoration: none;
+}
+
+#lead-content:a:active{
+  text-decoration: none;
+} */
+
 #lead-overlay {
   position: absolute;
   height: 100%;

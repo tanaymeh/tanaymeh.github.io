@@ -11,7 +11,8 @@
 */
 
 (function($) {
-
+    // Make Skills images un-draggable
+    // $('.skill_img').attr('draggable', false);
     // Remove no-js class
     $('html').removeClass('no-js');
 

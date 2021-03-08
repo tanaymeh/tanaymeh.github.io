@@ -535,14 +535,17 @@ footer {
     max-width: 800px; }
   #skills li {
     display: inline-block;
-    margin: 7px;
+    margin: 5px;
     padding: 5px 10px;
     color: #374054;
-    background: #e4e4ea;
+    background: #FFFFFF;
     list-style: none;
     cursor: default;
     font-size: 1.2em; }
-
+  #skills img{
+    height: 120%;
+    width: 120%;
+  }
 /*
     -------------------------------
     ----- 10. Contact Styles -----

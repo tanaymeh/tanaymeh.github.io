@@ -46,13 +46,12 @@
 .social-main ul{margin:5px 0 0 0;padding:0}
 .social-main li{display:inline-block;font-size: 1.35em;list-style:none}
 .social-main a{display:block;color:white;padding:10px}
-.social-main a:hover{color:#29afd5}
-/* .social-main li{
-  border: 3px solid #fff;
-  border-radius: 10px;
-  transition: 0.5s ease all;
-} */
-
+/* .social-main a:hover{color:#b116ee} */
+#linkedin :hover{color: #0e76a8}
+#github :hover{color: #24292e}
+#kaggle :hover{color: aqua}
+#mail :hover{color: #EA4335}
+#twitter :hover{color: #1DA1F2}
 
 body {
   font-family: 'Lato', sans-serif;

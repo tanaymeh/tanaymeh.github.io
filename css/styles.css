@@ -669,6 +669,11 @@ footer {
     margin-left: 0; }
   .vtimeline-content {
     margin-left: 70px; } }
+  #lead-image{
+    border-radius: 50%; 
+    margin-top: 40px; 
+    margin-bottom: 20px;
+  }
 
 @media only screen and (max-width: 992px) {
   #lead {
@@ -689,6 +694,11 @@ footer {
     text-align: center; }
     #about p {
       text-align: left; } }
+  #lead-image{
+    border-radius: 50%; 
+    margin-top: 40px; 
+    margin-bottom: 20px;
+  }
 
 @media only screen and (max-width: 768px) {
   header {
@@ -731,6 +741,11 @@ footer {
     text-align: center; }
   .social {
     text-align: center; } }
+  #lead-image{
+    border-radius: 50%; 
+    margin-top: 40px; 
+    margin-bottom: 20px;
+  }
 
 @media only screen and (max-width: 480px) {
   #lead-content h1 {
@@ -740,6 +755,11 @@ footer {
   #lead-content a {
     font-size: 0.9em;
     padding: 5px 10px; } }
+  #lead-image{
+    border-radius: 50%; 
+    margin-top: 40px; 
+    margin-bottom: 20px;
+  }
 
 ::-moz-selection {
   /* Code for Firefox */

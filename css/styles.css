@@ -786,3 +786,8 @@ footer {
 ::selection {
   color: white;
   background: purple; }
+
+@font-face {
+  font-family: SFMono;
+  src: url("../SFMono-Heavy.otf");
+}

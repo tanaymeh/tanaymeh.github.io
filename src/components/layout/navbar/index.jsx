@@ -1,0 +1,40 @@
+import React from "react"
+import { Link } from "gatsby"
+import PropTypes from "prop-types"
+import { User, Briefcase, Terminal, GitHub, PieChart} from 'react-feather'
+
+import {NavbarElement, NavbarList, NavbarLogo} from './style'
+
+const Navbar = ({ siteTitle }) => (
+  <nav>
+    <div className="container">
+      <NavbarElement>
+          <NavbarLogo>
+            <h3>
+              <Link to="/">
+                <Terminal className="align-middle"/> <span className="align-middle"> Tanay | Portfolio </span>
+              </Link>
+            </h3>
+          </NavbarLogo> 
+          <div className="main-navigation">
+            <NavbarList>
+              <li><Link to="/" className="lined-link" activeClassName="active"> <User /> <span> About </span> </Link></li> 
+              <li><Link to="/repositories" className="lined-link" activeClassName="active"> <GitHub /> <span> Github </span> </Link></li>  
+              {/* <li><Link to="/blog" className="lined-link" activeClassName="active"> <PenTool /> <span> Education </span> </Link></li>   */}
+              <li><Link to="/works" className="lined-link" activeClassName="active"> <Briefcase /> <span> Experience </span> </Link></li>
+            </NavbarList>
+          </div>
+      </NavbarElement>
+    </div>
+  </nav>
+)
+
+Navbar.propTypes = {
+  siteTitle: PropTypes.string,
+}
+
+Navbar.defaultProps = {
+  siteTitle: ``,
+}
+
+export default Navbar

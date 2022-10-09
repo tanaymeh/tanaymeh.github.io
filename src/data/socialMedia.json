@@ -1,0 +1,22 @@
+[
+  {
+    "id": 0,
+    "name": "github",
+    "url": "https://github.com/heytanay"
+  },
+  {
+    "id": 1,
+    "name": "linkedin",
+    "url": "https://www.linkedin.com/in/tanaymehta28/"
+  },
+  {
+    "id": 2,
+    "name": "twitter",
+    "url": "https://twitter.com/serious_mehta"
+  },
+  {
+    "id": 3,
+    "name": "kaggle",
+    "url": "https://www.kaggle.com/heyytanay"
+  }
+]

@@ -15,7 +15,7 @@
     <h1>Portfolio <button class="color_mode" style="font-size: 23px;border:none; color: black;">(light)</button></h1>
     <p class="author">
       <span style="font-size: 20px">Tanay Mehta</span><br />
-      March 2023
+      <span id="date_upd">March 2023</span>
     </p>
   </header>
 
@@ -254,6 +254,15 @@
     // Theme switch
     const toggle = document.querySelector('.color_mode');
     const body = document.querySelector('body');
+    const date = document.querySelector('#date_upd');
+ 
+    // Update date and time every time page loads
+    const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const d = new Date();
+    let name = month[d.getMonth()];
+    let year = d.getFullYear();
+    date.innerHTML = name + ' ' + year;
+
     toggle.addEventListener('click', () => {
         if (body.classList.contains('latex-dark')){
             toggle.innerHTML = "(dark)";
@@ -292,5 +301,4 @@
 
   <script async defer data-domain="latex.now.sh" src="https://plausible.io/js/plausible.js"></script>
 </body>
-
 </html>

@@ -12,7 +12,8 @@
 </head>
 <body id="top" class="latex-dark">
   <header>
-    <h1>Portfolio <button class="color_mode" style="font-size: 23px;border:none; color: black;">(light)</button></h1>
+    <h1>Portfolio</h1>
+  <button class="color_mode">🌕</button>
     <p class="author">
       <span style="font-size: 20px">Tanay Mehta</span><br />
       <span id="date_upd">March 2023</span>
@@ -279,18 +280,16 @@
 
     toggle.addEventListener('click', () => {
         if (body.classList.contains('latex-dark')){
-            toggle.innerHTML = "(dark)";
+            toggle.innerHTML = "🌑";
             body.classList.remove('latex-dark');
             body.classList.add('latex-light');
-            toggle.style.backgroundColor = 'rgb(41,41,41)';
-            toggle.style.color = 'white';
+            toggle.style.backgroundColor = '#F9FAFB';
         }
         else{
-            toggle.innerHTML = "(light)";
+            toggle.innerHTML = "🌕";
             body.classList.remove('latex-light')
             body.classList.add('latex-dark');
-            toggle.style.backgroundColor = 'white';
-            toggle.style.color = 'rgb(41,41,41)';
+            toggle.style.backgroundColor = '#292929';
         }
     })
     MathJax = {

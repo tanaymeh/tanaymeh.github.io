@@ -11,3 +11,25 @@
     width:100%;
     position:absolute;
 }
+
+.color_mode {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    font-size: 23px;
+    border: none;
+    background-color: #292929;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+    .color_mode {
+        right: 12px;
+        top: 12px;
+        font-size: 18px;
+    }
+}

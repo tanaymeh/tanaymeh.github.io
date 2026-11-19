@@ -78,6 +78,54 @@ body {
   pointer-events: none;
 }
 
+:root.theme-wipe {
+  --theme-sweep-easing: cubic-bezier(.35,.15,.55,.95);
+}
+
+.theme-wipe .theme-scan {
+  view-transition-name: theme-scan;
+}
+
+.theme-scan.theme-scan-visible {
+  opacity: 1;
+}
+
+:root.theme-wipe::view-transition {
+  pointer-events: none;
+}
+
+:root.theme-wipe::view-transition-group(root),
+:root.theme-wipe::view-transition-old(root),
+:root.theme-wipe::view-transition-old(theme-scan),
+:root.theme-wipe::view-transition-new(theme-scan) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+:root.theme-wipe::view-transition-old(theme-scan) {
+  visibility: hidden;
+}
+
+:root.theme-wipe::view-transition-new(root) {
+  animation: theme-reveal var(--theme-sweep-duration) var(--theme-sweep-easing) both;
+  mix-blend-mode: normal;
+}
+
+:root.theme-wipe::view-transition-group(theme-scan) {
+  z-index: 1;
+  animation: theme-sweep var(--theme-sweep-duration) var(--theme-sweep-easing) both;
+}
+
+@keyframes theme-reveal {
+  from { clip-path: inset(0 0 100%); }
+  to { clip-path: inset(0); }
+}
+
+@keyframes theme-sweep {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(calc(100dvh - 100%)); }
+}
+
 ::selection {
   color: var(--on-accent);
   background: var(--accent);
@@ -329,7 +377,7 @@ a {
   border-left: 1px solid var(--rule);
 }
 
-.profile-data dt, .entry-date, .record-link time, .repository, .pull-request, .kaggle-record dd {
+.profile-data dt, .entry-date, .record-link time, .repository, .pull-request {
   font-family: var(--mono);
   font-size: .75rem;
   font-variant-numeric: tabular-nums;
@@ -599,39 +647,15 @@ a {
 }
 
 .about-body {
-  display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
-}
-
-.about-body > p {
-  max-width: 66ch;
   padding: 1.25rem var(--pad);
 }
 
-.kaggle-record {
-  padding: .6rem var(--pad);
-  border-left: 1px solid var(--rule);
-  background: var(--inset);
+.about-body > p {
+  max-width: 74ch;
 }
 
-.kaggle-record > div {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding-block: .52rem;
-}
-
-.kaggle-record > div + div {
-  border-top: 1px solid var(--rule);
-}
-
-.kaggle-record dt {
-  color: var(--muted);
-  font-size: .875rem;
-}
-
-.kaggle-record dd {
-  color: var(--text);
+.about-body > p + p {
+  margin-top: .85rem;
 }
 
 .site-footer {
@@ -700,13 +724,8 @@ a {
 }
 
 @media (max-width: 53rem) {
-  .work-grid, .about-body {
+  .work-grid {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .kaggle-record {
-    border-top: 1px solid var(--rule);
-    border-left: 0;
   }
 }
 

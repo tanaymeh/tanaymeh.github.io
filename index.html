@@ -36,7 +36,9 @@
         const toggle = document.querySelector(".theme-toggle");
         const label = toggle.querySelector(".theme-state");
         const scan = document.querySelector(".theme-scan");
-        let animation;
+        const sweepDuration = 740;
+        root.style.setProperty("--theme-sweep-duration", sweepDuration + "ms");
+        let cancelMotion;
 
         function updateToggle() {
           const light = applyTheme() === "light";
@@ -45,33 +47,85 @@
           label.textContent = light ? "Light" : "Dark";
         }
 
+        function playThemeMotion() {
+          if (document.startViewTransition) {
+            root.classList.add("theme-wipe");
+            const transition = document.startViewTransition(() => {
+              if (cancelMotion !== cancel) return;
+              updateToggle();
+              scan.classList.add("theme-scan-visible");
+            });
+
+            function clearWipe() {
+              root.classList.remove("theme-wipe");
+              scan.classList.remove("theme-scan-visible");
+            }
+
+            function cancel() {
+              transition.skipTransition();
+              clearWipe();
+            }
+
+            function finish() {
+              if (cancelMotion !== cancel) return;
+              cancelMotion = undefined;
+              clearWipe();
+            }
+
+            cancelMotion = cancel;
+            transition.ready.catch(() => {}); // A skipped transition still applies its update.
+            transition.finished.then(finish, finish);
+            return;
+          }
+
+          if (!scan.animate) {
+            updateToggle();
+            return;
+          }
+
+          const animation = scan.animate([
+            { transform: "translateY(-100%)", opacity: 1 },
+            { transform: "translateY(calc(100vh - 100%))", opacity: 1 },
+          ], { duration: sweepDuration, easing: "cubic-bezier(.35,.15,.55,.95)" });
+          const cancel = () => animation.cancel();
+          cancelMotion = cancel;
+          animation.finished.then(() => {
+            if (cancelMotion !== cancel) return;
+            cancelMotion = undefined;
+            updateToggle();
+          }, () => {});
+        }
+
+        function finishThemeMotion() {
+          const cancel = cancelMotion;
+          cancelMotion = undefined;
+          cancel?.();
+          updateToggle();
+        }
+
         updateToggle();
         toggle.hidden = false;
 
         toggle.addEventListener("click", () => {
-          preference = root.dataset.theme === "light" ? "dark" : "light";
+          preference = (preference || root.dataset.theme) === "light" ? "dark" : "light";
           try {
             localStorage.setItem(storageKey, preference);
           } catch {
             // Keep the current selection even when storage is blocked.
           }
-          updateToggle();
-
-          animation?.cancel();
-          if (reduceMotion.matches || !scan.animate) return;
-
-          animation = scan.animate([
-            { transform: "translateY(-100%)", opacity: 0 },
-            { opacity: 1, offset: 0.06 },
-            { opacity: 1, offset: 0.88 },
-            { transform: "translateY(100vh)", opacity: 0 },
-          ], { duration: 740, easing: "cubic-bezier(.35,.15,.55,.95)" });
+          if (cancelMotion || reduceMotion.matches) {
+            finishThemeMotion();
+          } else {
+            playThemeMotion();
+          }
         });
 
         systemLight.addEventListener("change", () => {
           if (!preference) updateToggle();
         });
-        reduceMotion.addEventListener("change", () => animation?.cancel());
+        reduceMotion.addEventListener("change", () => {
+          if (reduceMotion.matches && cancelMotion) finishThemeMotion();
+        });
       }, { once: true });
     })();
   </script>
@@ -120,7 +174,7 @@
       <div class="profile">
         <div class="hero-copy">
           <h1 id="home-title">Tanay Mehta</h1>
-          <p class="hero-role">ML Engineering at CNTR</p>
+          <p class="hero-role">ML Engineer at CNTR</p>
           <p class="hero-lead">My work spans agentic systems, language model training, and inference performance.</p>
         </div>
         <dl class="profile-data">
@@ -149,12 +203,8 @@
         <h2 id="about-title">About me</h2>
       </div>
       <div class="about-body">
-        <p>I taught myself programming and studied machine learning through Andrew Ng’s Coursera courses. I started competing and sharing notebooks on Kaggle during the 2020 lockdown in India.</p>
-        <dl class="kaggle-record">
-          <div><dt>Notebooks peak rank</dt><dd>#54</dd></div>
-          <div><dt>Competitions</dt><dd>Expert</dd></div>
-          <div><dt>Datasets</dt><dd>Expert</dd></div>
-        </dl>
+        <p>I taught myself to program and got into machine learning through Andrew Ng’s courses. I started competing and sharing notebooks on Kaggle in 2020, during the lockdown in India.</p>
+        <p>I’m interested in what happens underneath the API, from how backpropagation computes gradients to where a language model spends time on the GPU. I’ve explored those questions by building an automatic differentiation library in NumPy, profiling GPT-2, and writing a fused CUDA kernel. I share what I learn through open-source code and technical writing.</p>
       </div>
     </section>
 

@@ -1,0 +1,74 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=20mm,top=19mm,bottom=18mm]{geometry}
+\usepackage[hidelinks,unicode]{hyperref}
+
+\hypersetup{
+  pdftitle={Tanay Mehta | Curriculum Vitae},
+  pdfauthor={Tanay Mehta},
+  pdfsubject={Machine learning engineering CV}
+}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1em}
+\raggedright
+\linespread{1.05}
+\newcommand{\cvsection}[1]{%
+  \par\addvspace{1.55em}%
+  {\large\scshape #1}\par\nopagebreak[4]%
+  \vspace{.25em}\hrule height .45pt\nopagebreak[4]\vspace{.65em}%
+}
+\newcommand{\cvrole}[2]{%
+  \textbf{#1}\hfill{\small #2}\par\nopagebreak[4]%
+}
+\newcommand{\workitem}[2]{\textbf{#1} #2\par\vspace{.45em}}
+
+\begin{document}
+
+{\fontsize{34}{37}\selectfont Tanay Mehta}\par
+\vspace{.3em}
+{\large ML Engineering}\par
+\vspace{.75em}
+{\small Frankfurt am Main, Germany
+  \quad\textbar\quad \href{mailto:heyytanay@gmail.com}{heyytanay@gmail.com}\par
+  \href{https://www.tanaymehta.com/}{tanaymehta.com}
+  \quad\textbar\quad \href{https://github.com/tanaymeh}{github.com/tanaymeh}
+  \quad\textbar\quad \href{https://www.linkedin.com/in/tanaymehta28/}{linkedin.com/in/tanaymehta28}\par}
+
+\cvsection{Experience}
+\cvrole{ML Engineering, CNTR}{Current}
+\vspace{.65em}
+\cvrole{AI Engineer, Aleph Alpha}{}
+\begin{list}{\textbullet}{%
+    \setlength{\leftmargin}{1em}%
+    \setlength{\labelwidth}{.45em}%
+    \setlength{\labelsep}{.55em}%
+    \setlength{\topsep}{.18em}%
+    \setlength{\itemsep}{.12em}%
+    \setlength{\parsep}{0pt}}
+  \item Helped design and scale enterprise agentic systems on the core Agentic Chat team.
+  \item Contributed to an API for distributed LLM pre-training and on-demand fine-tuning.
+  \item Worked on search for agentic systems, available through an MCP tool.
+\end{list}
+\vspace{.65em}
+\cvrole{Graduate Teaching Assistant, University of Bath}{Sep - Dec 2023}
+Supported undergraduate students with natural language processing concepts and coursework.\par
+
+\cvsection{Education}
+\cvrole{MSc Data Science, University of Bath}{2023 - 2024}
+Distinction. Dissertation on language model scaling laws and emergent abilities, including mathematical reasoning.\par
+\vspace{.65em}
+\cvrole{BTech Computer Science, JECRC University}{2018 - 2022}
+First Division (8.76/10). Minor in Mathematics \& Engineering.\par
+
+\cvsection{Selected Work}
+\workitem{\href{https://github.com/tanaymeh/llm-transpiler\#project-level-transpile}{LLM Transpiler}.}{LangGraph-based Java-to-Python project transpilation with dependency analysis and compilation retries.}
+\workitem{\href{https://www.tanaymehta.com/blog/2025/08/02/p9.html}{CUDA inference write-up}.}{Benchmarked a custom kernel and measured 38.0 to 34.4\,ms for one GPT-2 forward pass.}
+\workitem{Hugging Face Transformers.}{Contributed a \href{https://github.com/huggingface/transformers/pull/27464}{PyTorch fill-in-the-middle training example} and added \href{https://github.com/huggingface/transformers/pull/15531}{PoolFormer support}.}
+
+\cvsection{Recognition}
+\textbf{\href{https://kaggle.com/heyytanay}{Kaggle Notebooks Legacy Grandmaster}.} Peak notebooks rank \#54. Competitions Expert and Datasets Expert.\par
+
+\end{document}

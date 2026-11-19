@@ -18,7 +18,6 @@
   --muted: #b5b8aa;
   --quiet: #9b9e91;
   --accent: #ff8355;
-  --signal: #b0c99b;
   --display: "Space Grotesk", system-ui, sans-serif;
   --mono: ui-monospace, "SF Mono", Consolas, monospace;
   --gutter: clamp(1rem, 4vw, 4rem);
@@ -141,6 +140,7 @@ a:hover {
 .site-header {
   min-height: 4.625rem;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: .5rem;
 }
 
@@ -162,10 +162,11 @@ a:hover {
 }
 
 .main-nav {
+  flex-wrap: wrap;
   gap: clamp(.75rem, 2.55vw, 2.4rem);
 }
 
-.main-nav a, .footer-bar a, .github-link {
+.main-nav a, .footer-bar a, .panel-link, .export-cv {
   display: inline-flex;
   align-items: center;
   gap: .65em;
@@ -176,7 +177,7 @@ a:hover {
   text-decoration: none;
 }
 
-.main-nav a:hover, .footer-bar a:hover, .github-link:hover {
+.main-nav a:hover, .footer-bar a:hover, .panel-link:hover {
   color: var(--accent);
 }
 
@@ -246,7 +247,7 @@ a:hover {
   border-left: 1px solid var(--rule);
 }
 
-.profile-data dt, .entry-date, .archive-count, .repository, .pull-request, .kaggle-record dd {
+.profile-data dt, .entry-date, .record-link time, .repository, .pull-request, .kaggle-record dd {
   font-family: var(--mono);
   font-size: .75rem;
   font-variant-numeric: tabular-nums;
@@ -286,7 +287,6 @@ a:hover {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   object-position: center 38%;
-  filter: grayscale(1) brightness(.83) contrast(1.08);
 }
 
 .hero-photo::before, .hero-photo::after {
@@ -386,20 +386,88 @@ a:hover {
   color: var(--quiet);
 }
 
-.archive {
-  display: flex;
-  flex-direction: column;
+.work-output {
   grid-column: 2;
   grid-row: 1 / span 2;
+  min-width: 0;
   border-left: 1px solid var(--rule);
   background: var(--inset);
 }
 
-.archive-count {
-  display: flex;
-  align-items: center;
-  gap: .55em;
-  color: var(--signal);
+.archive {
+  border-top: 1px solid var(--rule);
+}
+
+.panel-link {
+  min-height: 1.75rem;
+}
+
+.work-list, .contributions {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.work-list li + li, .pull-requests {
+  border-top: 1px solid var(--rule);
+}
+
+.record-link {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: baseline;
+  gap: .25rem .75rem;
+  min-height: 2.75rem;
+  padding: .75rem var(--pad);
+  font-size: .875rem;
+  font-weight: 560;
+  text-decoration: none;
+}
+
+#open_source .record-link {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.record-link:hover, .record-link:focus-visible {
+  background: var(--hover);
+  color: var(--text);
+}
+
+.record-copy {
+  min-width: 0;
+}
+
+.record-link time, .record-link > .icon {
+  color: var(--quiet);
+}
+
+.record-link:hover > .icon, .record-link:focus-visible > .icon {
+  color: var(--accent);
+}
+
+.record-note {
+  display: block;
+  margin-top: .2rem;
+  color: var(--muted);
+  font-size: .8125rem;
+  font-weight: 400;
+}
+
+.pull-requests summary {
+  padding: .75rem var(--pad);
+  color: var(--muted);
+  font-size: .875rem;
+  font-weight: 580;
+  cursor: pointer;
+}
+
+.pull-requests summary:hover {
+  color: var(--accent);
+}
+
+.pull-requests[open] summary {
+  border-bottom: 1px solid var(--rule);
+  background: var(--raised);
 }
 
 .repository {
@@ -409,22 +477,6 @@ a:hover {
   letter-spacing: .025em;
   text-wrap: wrap;
   overflow-wrap: anywhere;
-}
-
-.contributions {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.contributions:first-of-type {
-  display: grid;
-  grid-auto-rows: minmax(min-content, 1fr);
-  flex: 1;
-}
-
-.contributions li {
-  display: grid;
 }
 
 .contributions + .repository {
@@ -457,7 +509,7 @@ a:hover {
   color: var(--text);
 }
 
-.contribution:focus-visible, .github-link:focus-visible {
+.contribution:focus-visible, .record-link:focus-visible, .pull-requests summary:focus-visible {
   outline-offset: -3px;
 }
 
@@ -476,13 +528,6 @@ a:hover {
   gap: .45em;
   color: var(--quiet);
   white-space: nowrap;
-}
-
-.github-link {
-  justify-content: space-between;
-  margin-top: auto;
-  padding: .55rem var(--pad);
-  border-top: 1px solid var(--rule);
 }
 
 .about, .site-footer {
@@ -544,6 +589,24 @@ a:hover {
   margin-top: .35rem;
 }
 
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem 1.35rem;
+}
+
+.export-cv {
+  padding-inline: .9rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.export-cv:hover {
+  background: var(--accent);
+  color: var(--canvas);
+}
+
 .contact-email {
   display: inline-flex;
   align-items: center;
@@ -579,7 +642,7 @@ a:hover {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .archive {
+  .work-output {
     grid-column: auto;
     grid-row: auto;
     border-top: 1px solid var(--rule);
@@ -633,6 +696,20 @@ a:hover {
 
   .hero-photo img {
     aspect-ratio: 16 / 10;
+  }
+
+  .record-link {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .record-link time {
+    grid-row: 2;
+    grid-column: 1;
+  }
+
+  .record-link > .icon {
+    grid-row: 1;
+    grid-column: 2;
   }
 
   .footer-bar a {

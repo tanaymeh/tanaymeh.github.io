@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Tanay Mehta, AI Engineer in Berlin. Work on agentic systems, language model training, and open-source machine learning.">
+  <meta name="description" content="Tanay Mehta, ML Engineer based in Frankfurt am Main. Work on agentic systems, language model training, and open-source machine learning.">
   <meta name="theme-color" content="#10110f">
-  <title>Tanay Mehta — AI Engineer</title>
+  <title>Tanay Mehta — ML Engineering</title>
   <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
   <link rel="preload" href="fonts/space-grotesk-600.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="custom.css">
@@ -21,11 +21,8 @@
     <symbol id="arrow-up" viewBox="0 0 20 20">
       <path d="M10 16.5V3.75m-5 5 5-5 5 5"/>
     </symbol>
-    <symbol id="branch" viewBox="0 0 20 20">
-      <circle cx="5.5" cy="4.5" r="2"/>
-      <circle cx="5.5" cy="15.5" r="2"/>
-      <circle cx="14.5" cy="4.5" r="2"/>
-      <path d="M5.5 6.5v7m9-7v1a4 4 0 0 1-4 4h-5"/>
+    <symbol id="download" viewBox="0 0 20 20">
+      <path d="M10 3v9m-3.5-3.5L10 12l3.5-3.5M4 13v3h12v-3"/>
     </symbol>
   </svg>
 
@@ -34,7 +31,7 @@
     <a class="monogram" href="#top" aria-label="Tanay Mehta, home">TM</a>
     <nav class="main-nav" aria-label="Main">
       <a href="#experience">Work</a>
-      <a href="#open_source">Open source</a>
+      <a href="#writing">Writing</a>
       <a href="#about_me">About</a>
       <a class="contact-button" href="#contact_me">Contact <svg class="icon" aria-hidden="true"><use href="#arrow-right"/></svg></a>
     </nav>
@@ -45,16 +42,16 @@
       <div class="profile">
         <div class="hero-copy">
           <h1 id="home-title">Tanay Mehta</h1>
-          <p class="hero-role">AI Engineer at Aleph Alpha</p>
-          <p class="hero-lead">I build agentic systems, language model training infrastructure, and search tools for agents.</p>
+          <p class="hero-role">ML Engineering at CNTR</p>
+          <p class="hero-lead">My work spans agentic systems, language model training, and inference performance.</p>
         </div>
         <dl class="profile-data">
           <div>
             <dt>Based in</dt>
-            <dd>Berlin, Germany</dd>
+            <dd>Frankfurt am Main, Germany</dd>
           </div>
           <div>
-            <dt>Kaggle</dt>
+            <dt>Kaggle milestone</dt>
             <dd>
               <a href="https://kaggle.com/heyytanay">Notebooks Grandmaster <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></a>
             </dd>
@@ -74,16 +71,23 @@
         <div class="panel-heading">
           <h2 id="experience-title">Experience</h2>
         </div>
+        <article class="entry" id="cntr" aria-labelledby="cntr-title">
+          <div class="entry-heading">
+            <h3 id="cntr-title">CNTR</h3>
+            <p class="entry-date">Current role</p>
+          </div>
+          <p class="entry-role">ML Engineering</p>
+        </article>
         <article class="entry" id="aie-aa" aria-labelledby="aleph-title">
           <div class="entry-heading">
             <h3 id="aleph-title">Aleph Alpha</h3>
-            <p class="entry-date">Nov 2024 – Present</p>
+            <p class="entry-date">Previous role</p>
           </div>
           <p class="entry-role">AI Engineer <span>· Full-time</span></p>
           <ul class="work-notes">
             <li>Helped architect and scale enterprise agentic systems on the core Agentic Chat team.</li>
             <li>Contributed to the Learning team’s fine-tuning API for distributed LLM pre-training and on-demand fine-tuning.</li>
-            <li>Working on search for agentic systems, available as an MCP tool.</li>
+            <li>Worked on search for agentic systems, available as an MCP tool.</li>
           </ul>
         </article>
         <article class="entry" id="gta-uob" aria-labelledby="teaching-title">
@@ -96,81 +100,182 @@
         </article>
       </section>
 
-      <section id="open_source" class="archive panel" aria-labelledby="archive-title">
-        <div class="panel-heading">
-          <h2 id="archive-title">Open source</h2>
-          <p class="archive-count"><svg class="icon" aria-hidden="true"><use href="#branch"/></svg> 9 merged pull requests</p>
-        </div>
-        <h3 class="repository" id="repository-1">huggingface/transformers</h3>
-        <ul class="contributions" role="list" aria-labelledby="repository-1">
-          <li>
-            <a class="contribution" href="https://github.com/huggingface/transformers/pull/27464">
-              <span>Fill-in-the-middle training example for PyTorch</span>
-              <span class="pull-request">#27464 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
-            </a>
-          </li>
-          <li>
-            <a class="contribution" href="https://github.com/huggingface/transformers/pull/25447">
-              <span>Number normalization for SpeechT5</span>
-              <span class="pull-request">#25447 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
-            </a>
-          </li>
-          <li>
-            <a class="contribution" href="https://github.com/huggingface/transformers/pull/15531">
-              <span>Add PoolFormer</span>
-              <span class="pull-request">#15531 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
-            </a>
-          </li>
-          <li>
-            <a class="contribution" href="https://github.com/huggingface/transformers/pull/25765">
-              <span>Fix Mega chunking for decoder-only models</span>
-              <span class="pull-request">#25765 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
-            </a>
-          </li>
-          <li>
-            <a class="contribution" href="https://github.com/huggingface/transformers/pull/26091">
-              <span>Remove metaspace characters when decoding with <code>MarianTokenizer</code></span>
-              <span class="pull-request">#26091 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
-            </a>
-          </li>
-          <li>
-            <a class="contribution" href="https://github.com/huggingface/transformers/pull/15746">
-              <span>Document model-specific outputs for PoolFormer</span>
-              <span class="pull-request">#15746 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
-            </a>
-          </li>
-        </ul>
-        <h3 class="repository" id="repository-2">lancedb/vectordb-recipes</h3>
-        <ul class="contributions" role="list" aria-labelledby="repository-2">
-          <li>
-            <a class="contribution" href="https://github.com/lancedb/vectordb-recipes/pull/73">
-              <span>Add an LLM pre-training example</span>
-              <span class="pull-request">#73 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
-            </a>
-          </li>
-        </ul>
-        <h3 class="repository" id="repository-3">deepmind/optax</h3>
-        <ul class="contributions" role="list" aria-labelledby="repository-3">
-          <li>
-            <a class="contribution" href="https://github.com/deepmind/optax/pull/409">
-              <span>Add hinge loss</span>
-              <span class="pull-request">#409 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
-            </a>
-          </li>
-        </ul>
-        <h3 class="repository" id="repository-4">Lightning-AI/lightning</h3>
-        <ul class="contributions" role="list" aria-labelledby="repository-4">
-          <li>
-            <a class="contribution" href="https://github.com/Lightning-AI/lightning/pull/15579">
-              <span>Use <code>monkeypatch.chdir</code> in tests</span>
-              <span class="pull-request">#15579 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
-            </a>
-          </li>
-        </ul>
-        <a class="github-link" href="https://github.com/tanaymeh">
-          GitHub profile <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
-        </a>
-      </section>
+      <div class="work-output">
+        <section id="writing" class="panel" aria-labelledby="writing-title">
+          <div class="panel-heading">
+            <h2 id="writing-title">Writing</h2>
+            <a class="panel-link" href="https://www.tanaymehta.com/blog/">All articles <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></a>
+          </div>
+          <ul class="work-list" role="list">
+            <li>
+              <a class="record-link" href="https://www.tanaymehta.com/blog/2025/08/02/p9.html">
+                <span class="record-copy">
+                  <span>Fixing LLM Inference Bottlenecks with Custom CUDA Kernels (Simple Kernel)</span>
+                  <span class="record-note">38.0 → 34.4 ms in a GPT-2 forward-pass benchmark</span>
+                </span>
+                <time datetime="2025-08-02">02 Aug 2025</time>
+                <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="record-link" href="https://www.tanaymehta.com/blog/2025/07/27/p8.html">
+                <span class="record-copy">
+                  <span>Fixing LLM Inference Bottlenecks with Custom CUDA Kernels (Profiling)</span>
+                </span>
+                <time datetime="2025-07-27">27 Jul 2025</time>
+                <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="record-link" href="https://www.tanaymehta.com/blog/2024/02/08/p7.html">
+                <span class="record-copy">
+                  <span>Curating Custom Datasets for Efficient LLM Training Using Lance</span>
+                </span>
+                <time datetime="2024-02-08">08 Feb 2024</time>
+                <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="record-link" href="https://www.tanaymehta.com/blog/2022/03/29/p6.html">
+                <span class="record-copy">
+                  <span>Installing CUDA and CUDA Toolkit on Ubuntu</span>
+                </span>
+                <time datetime="2022-03-29">29 Mar 2022</time>
+                <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="record-link" href="https://www.tanaymehta.com/blog/2022/03/17/p5.html">
+                <span class="record-copy">
+                  <span>Fixing Ubuntu’s Refresh Rate Reset After Reboot</span>
+                </span>
+                <time datetime="2022-03-17">17 Mar 2022</time>
+                <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section id="open_source" class="panel archive" aria-labelledby="archive-title">
+          <div class="panel-heading">
+            <h2 id="archive-title">Open source</h2>
+            <a class="panel-link" href="https://github.com/tanaymeh">GitHub <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></a>
+          </div>
+          <ul class="work-list" role="list">
+            <li>
+              <a class="record-link" href="https://github.com/tanaymeh/llc">
+                <span class="record-copy">
+                  <span>llc</span>
+                  <span class="record-note">Multi-agent coding tool for orchestrating long workflows.</span>
+                </span>
+                <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="record-link" href="https://github.com/tanaymeh/llm-transpiler">
+                <span class="record-copy">
+                  <span>Agentic Code Transpiler</span>
+                  <span class="record-note">A LangGraph prototype for Java-to-Python project translation.</span>
+                </span>
+                <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
+              </a>
+            </li>
+          </ul>
+          <details class="pull-requests">
+            <summary>Selected merged pull requests</summary>
+            <h3 class="repository" id="repository-lance">lance-format/lance</h3>
+            <ul class="contributions" role="list" aria-labelledby="repository-lance">
+              <li>
+                <a class="contribution" href="https://github.com/lance-format/lance/pull/2087">
+                  <span>Language model training example with Lance</span>
+                  <span class="pull-request">#2087 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
+                </a>
+              </li>
+            </ul>
+            <h3 class="repository" id="repository-lance-recipes">lancedb/lance-deeplearning-recipes</h3>
+            <ul class="contributions" role="list" aria-labelledby="repository-lance-recipes">
+              <li>
+                <a class="contribution" href="https://github.com/lancedb/lance-deeplearning-recipes/pull/23">
+                  <span>FSDP training with Lance</span>
+                  <span class="pull-request">#23 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
+                </a>
+              </li>
+              <li>
+                <a class="contribution" href="https://github.com/lancedb/lance-deeplearning-recipes/pull/25">
+                  <span>Diffusion model training with Lance</span>
+                  <span class="pull-request">#25 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
+                </a>
+              </li>
+            </ul>
+            <h3 class="repository" id="repository-1">huggingface/transformers</h3>
+            <ul class="contributions" role="list" aria-labelledby="repository-1">
+              <li>
+                <a class="contribution" href="https://github.com/huggingface/transformers/pull/27464">
+                  <span>Fill-in-the-middle training example for PyTorch</span>
+                  <span class="pull-request">#27464 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
+                </a>
+              </li>
+              <li>
+                <a class="contribution" href="https://github.com/huggingface/transformers/pull/25447">
+                  <span>Number normalization for SpeechT5</span>
+                  <span class="pull-request">#25447 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
+                </a>
+              </li>
+              <li>
+                <a class="contribution" href="https://github.com/huggingface/transformers/pull/15531">
+                  <span>Add PoolFormer</span>
+                  <span class="pull-request">#15531 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
+                </a>
+              </li>
+              <li>
+                <a class="contribution" href="https://github.com/huggingface/transformers/pull/25765">
+                  <span>Fix Mega chunking for decoder-only models</span>
+                  <span class="pull-request">#25765 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
+                </a>
+              </li>
+              <li>
+                <a class="contribution" href="https://github.com/huggingface/transformers/pull/26091">
+                  <span>Remove metaspace characters when decoding with <code>MarianTokenizer</code></span>
+                  <span class="pull-request">#26091 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
+                </a>
+              </li>
+              <li>
+                <a class="contribution" href="https://github.com/huggingface/transformers/pull/15746">
+                  <span>Document model-specific outputs for PoolFormer</span>
+                  <span class="pull-request">#15746 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
+                </a>
+              </li>
+            </ul>
+            <h3 class="repository" id="repository-2">lancedb/vectordb-recipes</h3>
+            <ul class="contributions" role="list" aria-labelledby="repository-2">
+              <li>
+                <a class="contribution" href="https://github.com/lancedb/vectordb-recipes/pull/73">
+                  <span>Add an LLM pre-training example</span>
+                  <span class="pull-request">#73 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
+                </a>
+              </li>
+            </ul>
+            <h3 class="repository" id="repository-3">deepmind/optax</h3>
+            <ul class="contributions" role="list" aria-labelledby="repository-3">
+              <li>
+                <a class="contribution" href="https://github.com/deepmind/optax/pull/409">
+                  <span>Add hinge loss</span>
+                  <span class="pull-request">#409 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
+                </a>
+              </li>
+            </ul>
+            <h3 class="repository" id="repository-4">Lightning-AI/lightning</h3>
+            <ul class="contributions" role="list" aria-labelledby="repository-4">
+              <li>
+                <a class="contribution" href="https://github.com/Lightning-AI/lightning/pull/15579">
+                  <span>Use <code>monkeypatch.chdir</code> in tests</span>
+                  <span class="pull-request">#15579 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
+                </a>
+              </li>
+            </ul>
+          </details>
+        </section>
+      </div>
 
       <section id="education" class="education panel" aria-labelledby="education-title">
         <div class="panel-heading">
@@ -214,16 +319,21 @@
     <div class="contact">
       <div>
         <h2 id="contact-title">Get in touch</h2>
-        <p>For AI or ML engineering roles, research, and industry collaborations.</p>
+        <p>For engineering and research collaborations.</p>
       </div>
-      <a class="contact-email" href="mailto:heyytanay@gmail.com">
-        heyytanay@gmail.com <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
-      </a>
+      <div class="contact-actions">
+        <a class="contact-email" href="mailto:heyytanay@gmail.com">
+          heyytanay@gmail.com <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
+        </a>
+        <a class="export-cv" href="cv/tanay-mehta-cv.pdf" download="Tanay-Mehta-CV.pdf">
+          Export as CV <svg class="icon" aria-hidden="true"><use href="#download"/></svg>
+        </a>
+      </div>
     </div>
     <div class="footer-bar">
       <nav aria-label="Elsewhere">
-        <a href="https://linkedin.com/in/tanaymehta28">LinkedIn</a>
-        <a href="https://twitter.com/serious_mehta">Twitter</a>
+        <a href="https://www.linkedin.com/in/tanaymehta28">LinkedIn</a>
+        <a href="https://x.com/serious_mehta">X</a>
         <a href="https://www.tanaymehta.com/blog/">Blog</a>
       </nav>
       <a class="back-to-top" href="#top">Back to top <svg class="icon" aria-hidden="true"><use href="#arrow-up"/></svg></a>

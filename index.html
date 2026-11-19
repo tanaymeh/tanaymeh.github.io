@@ -30,9 +30,9 @@
   <header class="wrap site-header">
     <a class="monogram" href="#top" aria-label="Tanay Mehta, home">TM</a>
     <nav class="main-nav" aria-label="Main">
-      <a href="#experience">Work</a>
-      <a href="#writing">Blog Posts</a>
       <a href="#about_me">About</a>
+      <a href="#experience">Work</a>
+      <a href="#writing">Blogs</a>
       <a class="contact-button" href="#contact_me">Contact <svg class="icon" aria-hidden="true"><use href="#arrow-right"/></svg></a>
     </nav>
   </header>
@@ -66,6 +66,20 @@
       </div>
     </section>
 
+    <section id="about_me" class="about panel" aria-labelledby="about-title">
+      <div class="panel-heading">
+        <h2 id="about-title">About me</h2>
+      </div>
+      <div class="about-body">
+        <p>I taught myself programming and studied machine learning through Andrew Ng’s Coursera courses. I started competing and sharing notebooks on Kaggle during the 2020 lockdown in India.</p>
+        <dl class="kaggle-record">
+          <div><dt>Notebooks peak rank</dt><dd>#54</dd></div>
+          <div><dt>Competitions</dt><dd>Expert</dd></div>
+          <div><dt>Datasets</dt><dd>Expert</dd></div>
+        </dl>
+      </div>
+    </section>
+
     <div class="work-grid">
       <div class="work-history">
         <section id="experience" class="experience panel" aria-labelledby="experience-title">
@@ -74,10 +88,11 @@
           </div>
           <article class="entry" id="cntr" aria-labelledby="cntr-title">
             <div class="entry-heading">
-              <h3 id="cntr-title">CNTR</h3>
+              <h3 id="cntr-title"><a href="https://www.cntr.com/">CNTR</a></h3>
               <p class="entry-date">Current role</p>
             </div>
-            <p class="entry-role">ML Engineering</p>
+            <p class="entry-role">ML Engineer</p>
+            <p class="entry-description">Joined as CNTR’s first technical hire to build ML systems that help people and AI work together.</p>
           </article>
           <article class="entry" id="aie-aa" aria-labelledby="aleph-title">
             <div class="entry-heading">
@@ -125,45 +140,9 @@
       </div>
 
       <div class="work-output">
-        <section id="featured_prs" class="panel" aria-labelledby="featured-prs-title">
-          <div class="panel-heading">
-            <h2 id="featured-prs-title">Featured Pull Requests</h2>
-          </div>
-          <p class="repository" id="featured-repository">huggingface/transformers</p>
-          <ul class="contributions" role="list" aria-labelledby="featured-repository">
-            <li>
-              <a class="contribution" href="https://github.com/huggingface/transformers/pull/15531">
-                <span class="record-copy">
-                  <span>PoolFormer integration</span>
-                  <span class="record-note">Added the PoolFormer vision architecture to Transformers.</span>
-                </span>
-                <span class="pull-request">#15531 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
-              </a>
-            </li>
-            <li>
-              <a class="contribution" href="https://github.com/huggingface/transformers/pull/27464">
-                <span class="record-copy">
-                  <span>Fill-in-the-middle training for PyTorch</span>
-                  <span class="record-note">Added an example for training language models to fill in missing text.</span>
-                </span>
-                <span class="pull-request">#27464 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
-              </a>
-            </li>
-            <li>
-              <a class="contribution" href="https://github.com/huggingface/transformers/pull/25447">
-                <span class="record-copy">
-                  <span>Number normalization for SpeechT5</span>
-                  <span class="record-note">Enabled text-to-speech to read numbers, currencies, and percentages aloud.</span>
-                </span>
-                <span class="pull-request">#25447 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
-              </a>
-            </li>
-          </ul>
-        </section>
-
         <section id="writing" class="panel" aria-labelledby="writing-title">
           <div class="panel-heading">
-            <h2 id="writing-title">Blog Posts</h2>
+            <h2 id="writing-title">Blogs</h2>
             <a class="panel-link" href="https://www.tanaymehta.com/blog/">All articles <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></a>
           </div>
           <ul class="work-list" role="list">
@@ -209,74 +188,44 @@
             </li>
           </ul>
         </section>
+
+        <section id="featured_prs" class="panel" aria-labelledby="featured-prs-title">
+          <div class="panel-heading">
+            <h2 id="featured-prs-title">Featured Pull Requests</h2>
+          </div>
+          <p class="repository" id="featured-repository">huggingface/transformers</p>
+          <ul class="contributions" role="list" aria-labelledby="featured-repository">
+            <li>
+              <a class="contribution" href="https://github.com/huggingface/transformers/pull/15531">
+                <span class="record-copy">
+                  <span>PoolFormer integration</span>
+                  <span class="record-note">Added the PoolFormer vision architecture to Transformers.</span>
+                </span>
+                <span class="pull-request">#15531 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
+              </a>
+            </li>
+            <li>
+              <a class="contribution" href="https://github.com/huggingface/transformers/pull/27464">
+                <span class="record-copy">
+                  <span>Fill-in-the-middle training for PyTorch</span>
+                  <span class="record-note">Added an example for training language models to fill in missing text.</span>
+                </span>
+                <span class="pull-request">#27464 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
+              </a>
+            </li>
+            <li>
+              <a class="contribution" href="https://github.com/huggingface/transformers/pull/25447">
+                <span class="record-copy">
+                  <span>Number normalization for SpeechT5</span>
+                  <span class="record-note">Enabled text-to-speech to read numbers, currencies, and percentages aloud.</span>
+                </span>
+                <span class="pull-request">#25447 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
+              </a>
+            </li>
+          </ul>
+        </section>
       </div>
     </div>
-
-    <details class="pull-requests" id="pull-request-archive">
-      <summary>More merged pull requests</summary>
-      <h3 class="repository" id="repository-1">huggingface/transformers</h3>
-      <ul class="contributions" role="list" aria-labelledby="repository-1">
-        <li>
-          <a class="contribution" href="https://github.com/huggingface/transformers/pull/25765">
-            <span>Fix Mega chunking for decoder-only models</span>
-            <span class="pull-request">#25765 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
-          </a>
-        </li>
-        <li>
-          <a class="contribution" href="https://github.com/huggingface/transformers/pull/26091">
-            <span>Remove metaspace characters when decoding with <code>MarianTokenizer</code></span>
-            <span class="pull-request">#26091 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
-          </a>
-        </li>
-        <li>
-          <a class="contribution" href="https://github.com/huggingface/transformers/pull/15746">
-            <span>Document model-specific outputs for PoolFormer</span>
-            <span class="pull-request">#15746 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
-          </a>
-        </li>
-      </ul>
-      <h3 class="repository" id="repository-2">lancedb/vectordb-recipes</h3>
-      <ul class="contributions" role="list" aria-labelledby="repository-2">
-        <li>
-          <a class="contribution" href="https://github.com/lancedb/vectordb-recipes/pull/73">
-            <span>Add an LLM pre-training example</span>
-            <span class="pull-request">#73 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
-          </a>
-        </li>
-      </ul>
-      <h3 class="repository" id="repository-3">deepmind/optax</h3>
-      <ul class="contributions" role="list" aria-labelledby="repository-3">
-        <li>
-          <a class="contribution" href="https://github.com/deepmind/optax/pull/409">
-            <span>Add hinge loss</span>
-            <span class="pull-request">#409 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
-          </a>
-        </li>
-      </ul>
-      <h3 class="repository" id="repository-4">Lightning-AI/lightning</h3>
-      <ul class="contributions" role="list" aria-labelledby="repository-4">
-        <li>
-          <a class="contribution" href="https://github.com/Lightning-AI/lightning/pull/15579">
-            <span>Use <code>monkeypatch.chdir</code> in tests</span>
-            <span class="pull-request">#15579 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
-          </a>
-        </li>
-      </ul>
-    </details>
-
-    <section id="about_me" class="about panel" aria-labelledby="about-title">
-      <div class="panel-heading">
-        <h2 id="about-title">About me</h2>
-      </div>
-      <div class="about-body">
-        <p>I taught myself programming and studied machine learning through Andrew Ng’s Coursera courses. I started competing and sharing notebooks on Kaggle during the 2020 lockdown in India.</p>
-        <dl class="kaggle-record">
-          <div><dt>Notebooks peak rank</dt><dd>#54</dd></div>
-          <div><dt>Competitions</dt><dd>Expert</dd></div>
-          <div><dt>Datasets</dt><dd>Expert</dd></div>
-        </dl>
-      </div>
-    </section>
 
     <section id="open_source" class="panel projects" aria-labelledby="archive-title">
       <div class="panel-heading">
@@ -287,8 +236,26 @@
         <li>
           <a class="record-link" href="https://github.com/tanaymeh/llc">
             <span class="record-copy">
-              <span>llc</span>
-              <span class="record-note">Multi-agent coding tool for orchestrating long workflows.</span>
+              <span>LLC</span>
+              <span class="record-note">Coordinates parallel coding agents in a local workspace with live progress and resumable sessions.</span>
+            </span>
+            <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
+          </a>
+        </li>
+        <li>
+          <a class="record-link" href="https://github.com/tanaymeh/mamba-train">
+            <span class="record-copy">
+              <span>Mamba Train</span>
+              <span class="record-note">Fine-tunes Mamba to fill in missing code, using non-overlapping token windows from Lance datasets.</span>
+            </span>
+            <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
+          </a>
+        </li>
+        <li>
+          <a class="record-link" href="https://github.com/tanaymeh/nadl">
+            <span class="record-copy">
+              <span>NADL</span>
+              <span class="record-note">Computes first-order gradients through NumPy tensor operations, with tests against TensorFlow.</span>
             </span>
             <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
           </a>
@@ -296,8 +263,8 @@
         <li>
           <a class="record-link" href="https://github.com/tanaymeh/llm-transpiler">
             <span class="record-copy">
-              <span>Agentic Code Transpiler</span>
-              <span class="record-note">A LangGraph prototype for Java-to-Python project translation.</span>
+              <span>LLM Transpiler</span>
+              <span class="record-note">Prototypes Java-to-Python migration across files with dependency-aware parallel translation and compilation retries.</span>
             </span>
             <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
           </a>

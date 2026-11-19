@@ -459,23 +459,6 @@ a:hover {
   font-weight: 400;
 }
 
-.pull-requests summary {
-  padding: .75rem var(--pad);
-  color: var(--muted);
-  font-size: .875rem;
-  font-weight: 580;
-  cursor: pointer;
-}
-
-.pull-requests summary:hover {
-  color: var(--accent);
-}
-
-.pull-requests[open] summary {
-  border-bottom: 1px solid var(--rule);
-  background: var(--raised);
-}
-
 .repository {
   padding: .62rem var(--pad) .35rem;
   color: var(--quiet);
@@ -483,10 +466,6 @@ a:hover {
   letter-spacing: .025em;
   text-wrap: wrap;
   overflow-wrap: anywhere;
-}
-
-.contributions + .repository {
-  border-top: 1px solid var(--rule);
 }
 
 .contributions li + li {
@@ -515,17 +494,12 @@ a:hover {
   color: var(--text);
 }
 
-.contribution:focus-visible, .record-link:focus-visible, .pull-requests summary:focus-visible {
+.contribution:focus-visible, .record-link:focus-visible {
   outline-offset: -3px;
 }
 
 .contribution:hover .pull-request, .contribution:focus-visible .pull-request {
   color: var(--accent);
-}
-
-.contribution code {
-  font-family: var(--mono);
-  font-size: .87em;
 }
 
 .pull-request {
@@ -536,7 +510,7 @@ a:hover {
   white-space: nowrap;
 }
 
-.about, .projects, .pull-requests, .site-footer {
+.about, .projects, .site-footer {
   margin-top: 1rem;
   border: 1px solid var(--rule);
   background: var(--surface);

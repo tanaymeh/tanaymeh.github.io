@@ -295,7 +295,7 @@ a {
   gap: clamp(.75rem, 2.55vw, 2.4rem);
 }
 
-.main-nav a, .footer-bar a, .panel-link, .export-cv {
+.main-nav a, .footer-bar a, .panel-link {
   display: inline-flex;
   align-items: center;
   gap: .65em;
@@ -673,24 +673,6 @@ a {
 
 .contact p {
   margin-top: .35rem;
-}
-
-.contact-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: .75rem 1.35rem;
-}
-
-.export-cv {
-  padding-inline: .9rem;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-}
-
-.export-cv:hover {
-  background: var(--accent);
-  color: var(--on-accent);
 }
 
 .contact-email {

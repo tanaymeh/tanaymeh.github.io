@@ -1,317 +1,424 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="custom.css">
-    <link rel="stylesheet" href="https://unpkg.com/latex.css/style.min.css" />
-    <link rel="stylesheet" href="https://latex.now.sh/prism/prism.css">
-    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tanay Mehta | Portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tanay Mehta, ML Engineer based in Frankfurt am Main. Work on agentic systems, language model training, and open-source machine learning.">
+  <meta name="theme-color" content="#10110f">
+  <title>Tanay Mehta — ML Engineering</title>
+  <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="preconnect" href="https://heyytanay.sirv.com">
+  <link rel="preload" href="fonts/space-grotesk-600.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const themeColor = document.querySelector('meta[name="theme-color"]');
+      const systemLight = window.matchMedia("(prefers-color-scheme: light)");
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const storageKey = "portfolio-theme";
+      let preference;
+
+      try {
+        const saved = localStorage.getItem(storageKey);
+        if (saved === "light" || saved === "dark") preference = saved;
+      } catch {
+        // The theme can still be changed for this visit.
+      }
+
+      function applyTheme() {
+        const theme = preference || (systemLight.matches ? "light" : "dark");
+        root.dataset.theme = theme;
+        themeColor.content = theme === "light" ? "#edeee6" : "#10110f";
+        return theme;
+      }
+
+      applyTheme();
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.querySelector(".theme-toggle");
+        const label = toggle.querySelector(".theme-state");
+        const scan = document.querySelector(".theme-scan");
+        const sweepDuration = 740;
+        root.style.setProperty("--theme-sweep-duration", sweepDuration + "ms");
+        let cancelMotion;
+
+        function updateToggle() {
+          const light = applyTheme() === "light";
+          toggle.setAttribute("aria-pressed", String(light));
+          toggle.title = light ? "Switch to dark theme" : "Switch to light theme";
+          label.textContent = light ? "Light" : "Dark";
+        }
+
+        function playThemeMotion() {
+          if (document.startViewTransition) {
+            root.classList.add("theme-wipe");
+            const transition = document.startViewTransition(() => {
+              if (cancelMotion !== cancel) return;
+              updateToggle();
+              scan.classList.add("theme-scan-visible");
+            });
+
+            function clearWipe() {
+              root.classList.remove("theme-wipe");
+              scan.classList.remove("theme-scan-visible");
+            }
+
+            function cancel() {
+              transition.skipTransition();
+              clearWipe();
+            }
+
+            function finish() {
+              if (cancelMotion !== cancel) return;
+              cancelMotion = undefined;
+              clearWipe();
+            }
+
+            cancelMotion = cancel;
+            transition.ready.catch(() => {}); // A skipped transition still applies its update.
+            transition.finished.then(finish, finish);
+            return;
+          }
+
+          if (!scan.animate) {
+            updateToggle();
+            return;
+          }
+
+          const animation = scan.animate([
+            { transform: "translateY(-100%)", opacity: 1 },
+            { transform: "translateY(calc(100vh - 100%))", opacity: 1 },
+          ], { duration: sweepDuration, easing: "cubic-bezier(.35,.15,.55,.95)" });
+          const cancel = () => animation.cancel();
+          cancelMotion = cancel;
+          animation.finished.then(() => {
+            if (cancelMotion !== cancel) return;
+            cancelMotion = undefined;
+            updateToggle();
+          }, () => {});
+        }
+
+        function finishThemeMotion() {
+          const cancel = cancelMotion;
+          cancelMotion = undefined;
+          cancel?.();
+          updateToggle();
+        }
+
+        updateToggle();
+        toggle.hidden = false;
+
+        toggle.addEventListener("click", () => {
+          preference = (preference || root.dataset.theme) === "light" ? "dark" : "light";
+          try {
+            localStorage.setItem(storageKey, preference);
+          } catch {
+            // Keep the current selection even when storage is blocked.
+          }
+          if (cancelMotion || reduceMotion.matches) {
+            finishThemeMotion();
+          } else {
+            playThemeMotion();
+          }
+        });
+
+        systemLight.addEventListener("change", () => {
+          if (!preference) updateToggle();
+        });
+        reduceMotion.addEventListener("change", () => {
+          if (reduceMotion.matches && cancelMotion) finishThemeMotion();
+        });
+      }, { once: true });
+    })();
+  </script>
+  <link rel="stylesheet" href="custom.css">
 </head>
-<body id="top" class="latex-dark">
-  <header>
-    <h1>Portfolio</h1>
-  <!-- <button class="color_mode">🌕</button> -->
-    <p class="author">
-      <span style="font-size: 20px">Tanay Mehta</span><br />
-      <span id="date_upd">March 2023</span>
-    </p>
+<body id="top">
+  <div class="theme-scan" aria-hidden="true"></div>
+  <svg class="icon-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="arrow-external" viewBox="0 0 20 20">
+      <path d="M5 15 15 5M6 5h9v9"/>
+    </symbol>
+    <symbol id="arrow-right" viewBox="0 0 20 20">
+      <path d="M3.5 10h12.75m-5-5 5 5-5 5"/>
+    </symbol>
+    <symbol id="arrow-up" viewBox="0 0 20 20">
+      <path d="M10 16.5V3.75m-5 5 5-5 5 5"/>
+    </symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="wrap site-header">
+    <div class="header-start">
+      <a class="monogram" href="#top" aria-label="Tanay Mehta, home">TM</a>
+      <button class="theme-toggle" type="button" aria-label="Light theme" aria-pressed="false" hidden>
+        <svg class="icon theme-icon" viewBox="0 0 20 20" aria-hidden="true">
+          <rect x="2.5" y="4" width="15" height="12" rx="1"/>
+          <path d="m5.5 8 2 2-2 2M9.5 12h1.75"/>
+          <path class="theme-icon-pane" d="M13 4.75h3.75v10.5H13z"/>
+        </svg>
+        <span class="theme-state" aria-hidden="true">Dark</span>
+      </button>
+    </div>
+    <nav class="main-nav" aria-label="Main">
+      <a href="#about_me">About</a>
+      <a href="#experience">Work</a>
+      <a href="#writing">Blogs</a>
+      <a class="contact-button" href="#contact_me">Contact <svg class="icon" aria-hidden="true"><use href="#arrow-right"/></svg></a>
+    </nav>
   </header>
 
-  <div class="abstract">
-    <h2>Abstract</h2>
-    <p>
-      I am a 24-year-old AI Engineer working at Aleph Alpha, Berlin 🇩🇪. I recently completed my Masters in Data Science with Distinction from the University of Bath 🇬🇧, where I worked on generating scaling laws for small language models as my thesis. I am also a Kaggle Notebooks Grandmaster and an avid contributor to major open source ML projects!<br>
-      I am also looking for ML Engineering / AI Engineering roles actively and if you are hiring, you can contact me at <a href="mailto:heyytanay@gmail.com">heyytanay@gmail.com</a>.
-    </p>
-  </div>
+  <main id="main" class="wrap" tabindex="-1">
+    <section class="hero" aria-labelledby="home-title">
+      <div class="profile">
+        <div class="hero-copy">
+          <h1 id="home-title">Tanay Mehta</h1>
+          <p class="hero-role">ML Engineer at CNTR</p>
+          <p class="hero-lead">My work spans agentic systems, language model training, and inference performance.</p>
+        </div>
+        <dl class="profile-data">
+          <div>
+            <dt>Based in</dt>
+            <dd>Frankfurt am Main, Germany</dd>
+          </div>
+          <div>
+            <dt>Kaggle milestone</dt>
+            <dd>
+              <a href="https://kaggle.com/heyytanay">Notebooks Grandmaster <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></a>
+            </dd>
+          </div>
+        </dl>
+      </div>
+      <div class="hero-photo">
+        <img src="https://heyytanay.sirv.com/Images/IMG_2369.jpg?w=480&amp;format=optimal&amp;q=80"
+          srcset="https://heyytanay.sirv.com/Images/IMG_2369.jpg?w=480&amp;format=optimal&amp;q=80 480w,
+                  https://heyytanay.sirv.com/Images/IMG_2369.jpg?w=960&amp;format=optimal&amp;q=80 960w"
+          sizes="(max-width: 40rem) calc(100vw - 2.5rem), (max-width: 68rem) 40vw, 480px"
+          alt="Tanay Mehta in front of Tower Bridge" width="480" height="479" fetchpriority="high">
+      </div>
+    </section>
 
-  <nav role="navigation" class="toc">
-    <h2>Contents</h2>
-    <ol>
-      <li><a href="#about_me">About me</a></li>
-      <li>
-        <a href="#education">Education</a>
-        <ol>
-          <li><a href="#ub">MSc in Data Science at the University of Bath</a></li>
-          <li><a href="#ju">BTech in Computer Science at JECRC University</a></li>
-        </ol>
-      </li>
-      <li>
-        <a href="#experience">Experience</a>
-        <ol>
-          <li><a href="#aie-aa">AI Engineer - Aleph Alpha</a></li>
-          <li><a href="#gta-uob">Graduate Teaching Assistant - University of Bath</a></li>
-        </ol>
-      </li>
-      <li><a href="#open_source">Open Source Contributions</a></li>
-      <!-- <li><a href="#projects">Projects</a></li> -->
-      <!-- <li><a href="#talks">Talks / Workshops</a></li> -->
-      <li><a href="#contact_me">Contact me</a></li>
-    </ol>
-  </nav>
+    <section id="about_me" class="about panel" aria-labelledby="about-title">
+      <div class="panel-heading">
+        <h2 id="about-title">About me</h2>
+      </div>
+      <div class="about-body">
+        <p>I taught myself to program and got into machine learning through Andrew Ng’s courses. I started competing and sharing notebooks on Kaggle in 2020, during the lockdown in India.</p>
+        <p>I’m interested in what happens underneath the API, from how backpropagation computes gradients to where a language model spends time on the GPU. I’ve explored those questions by building an automatic differentiation library in NumPy, profiling GPT-2, and writing a fused CUDA kernel. I share what I learn through open-source code and technical writing.</p>
+      </div>
+    </section>
 
-  <main>
-    <article>
-      <h2 id="about_me">1. About Me</h2>
-      <figure>
-        <img src="https://heyytanay.sirv.com/Images/IMG_5615_cropped_min.jpg"
-          loading="lazy" alt="Mountain landscape" width="600" height="400" />
-        <figcaption>
-          I may look like that but I can assure you, I don't bite.
-        </figcaption>
-      </figure>
-      <br>
-      <p>
-      I am a self-taught programmer and who taught himself Machine learning from Andrew NG's excellent courses on Coursera. In summer of 2020, amid the COVID lockdown in India, I started using Kaggle to enhance his skills and be more competitive in Data Science and Machine Learning. Currently, I am a Notebooks Grandmaster, Competitions Expert and Datasets Expert and my highest rank was #54 in Notebooks category on Kaggle.<br>
-      </p>
-      <h2 id="education">2. Education</h2>
-      <p>
-        I am currently a Masters Student (majoring in Data Science) at <a href="https://www.bath.ac.uk/">University of Bath</a>, Somerset, United Kingdom.
-      </p>
+    <div class="work-grid">
+      <div class="work-history">
+        <section id="experience" class="experience panel" aria-labelledby="experience-title">
+          <div class="panel-heading">
+            <h2 id="experience-title">Experience</h2>
+          </div>
+          <article class="entry" id="cntr" aria-labelledby="cntr-title">
+            <div class="entry-heading">
+              <h3 id="cntr-title"><a href="https://www.cntr.com/">CNTR</a></h3>
+              <p class="entry-date">Current role</p>
+            </div>
+            <p class="entry-role">ML Engineer</p>
+            <p class="entry-description">Joined as CNTR’s first technical hire to build ML systems that help people and AI work together.</p>
+          </article>
+          <article class="entry" id="aie-aa" aria-labelledby="aleph-title">
+            <div class="entry-heading">
+              <h3 id="aleph-title">Aleph Alpha</h3>
+              <p class="entry-date">Previous role</p>
+            </div>
+            <p class="entry-role">AI Engineer <span>· Full-time</span></p>
+            <ul class="work-notes">
+              <li>Helped architect and scale enterprise agentic systems on the core Agentic Chat team.</li>
+              <li>Contributed to the Learning team’s fine-tuning API for distributed LLM pre-training and on-demand fine-tuning.</li>
+              <li>Worked on search for agentic systems, available as an MCP tool.</li>
+            </ul>
+          </article>
+          <article class="entry" id="gta-uob" aria-labelledby="teaching-title">
+            <div class="entry-heading">
+              <h3 id="teaching-title">University of Bath</h3>
+              <p class="entry-date">Sep – Dec 2023</p>
+            </div>
+            <p class="entry-role">Graduate Teaching Assistant <span>· Part-time</span></p>
+            <p class="entry-description">Helped undergraduates with natural language processing concepts and coursework for CM30320.</p>
+          </article>
+        </section>
 
-      <p>
-        Below is the list of formal degrees I have attended / currently attending / will be attending in the near future.
-      </p>
-      
-      <h3 id="ub">2.1 MSc in Data Science at University of Bath (UofBath)</h3>
-      <figure>
-        <img src="https://heyytanay.sirv.com/Images/bath_logo.webp"
-          loading="lazy" alt="University of Bath" width="500" height="400" />
-      </figure>
-      <p><i>Major:</i> Data Science</p>
-      <p><i>Status:</i> Completed, 2023-2024</p>
-      <p><i>Final Grade:</i> <strong>Distinction</strong></p>
-      <p><i>Dissertation Focus:</i> For my dissertation (Jun '24 - Sept '24), I am generating scaling laws for Large Language models and also searching for phase transitions in LLMs to look for mathematical reasoning and other emergent abilities.
-        I am supervised by <a href="https://researchportal.bath.ac.uk/en/persons/nello-cristianini">Dr Nello Cristianini</a> and my day-to-day work consists of training LLMs with different model parameters, hyper-parameter settings and token sizes
-        and then documenting my findings from these experiments.
-      </p>
-      <h3 id="ju">2.2 BTech in Computer Science at JECRC University</h3>
-      <figure>
-        <img src="https://heyytanay.sirv.com/Images/ju_logo.png"
-          loading="lazy" alt="JU Logo" width="500" height="400" />
-      </figure>
-      <p><i>Major:</i> Computer Science</p>
-      <p><i>Minor:</i> Mathematics & Engineering</p>
-      <p><i>Status:</i> Completed, 2018-2022</p>
-      <p><i>Final Grade:</i> 8.76 / 10.0 (87.6%), <strong>First Division</strong></p>
-
-      <!-- EXPERIENCE SECTION -->
-
-      <h2 id="experience">3. Experience</h2>
-      <p>Below you can see all the places I have worked / interned at.</p>
-
-      <h3 id="aie-aa">3.1 AI Engineer - Aleph Alpha</h3>
-      <p><i>Type:</i> Full-time</p>
-      <p><i>Duration:</i> November 2024 - Present</p>
-      <p><i>About:</i>
-      <ul>
-        <li>
-          Part of the core team building Agentic Chat wherein we architected and scaled agentic systems from the ground up for enterprise.
-        </li>
-        <li>
-          Contributed to building the fine-tuning API within the Learning team, automating distributed LLM pre-training and on-demand finetuning at scale.
-        </li>
-        <li>
-          Currently building effective searching for Agentic systems available as an MCP tool.
-        </li>
-      </ul>
-
-      <h3 id="gta-uob">3.2 Graduate Teaching Assistant (NLP) - University of Bath</h3>
-      <p><i>Type:</i> Part-time</p>
-      <p><i>Duration:</i> September 2023 - December 2023 (Winter Semester)</p>
-      <p><i>About:</i>
-      <ul>
-        <li>
-          Worked as a Teaching Assistant in a Natural Language Processing unit (CM30320) for Undergraduates at the
-          University of Bath, where I assisted students in understanding complex NLP concepts and related coursework
-        </li>
-      </ul>
-
-      <!-- <h3 id="mle-dtl">3.2 Machine Learning Engineer - Datatailr</h3>
-      <p><i>Type:</i> Full-time</p>
-      <p><i>Duration:</i> April 2023 - September 2023 (6 months)</p>
-      <p><i>About:</i>
-      <ul>
-        <li>Wrote an Internal Documentation search application using locally deployed Large Language models for our clients to search for the documentation without passing the data to any 3rd party</li>
-
-        <li>Built a code-search tool that enabled our developers to search their large code base internally using local LLMs.</li>
-          
-        <li>The Final project I took on was documenting the company's existing codebase (150,000 LOC) using LLMs. This required not just ML but also software development such as static code parsing, etc</li>
-      </ul>
-
-      <h3 id="mle-cai">3.3 Machine Learning Engineer - MetaDialog</h3>
-      <p><i>Type:</i> Full-time</p>
-      <p><i>Duration:</i> September 2022 - March 2023 (6 months)</p>
-      <p><i>About:</i>
-      <ul>
-        <li>Improving the existing internal document Search system by utilizing Unsupervised Large Language Models.</li>
-
-        <li>Used Microsoft's Deepspeed along with a combination of other speedups to carry out transformer inference using Larger than Memory models on large text datasets.</li>
-          
-        <li>Performed extensive prompt engineering in order to utilize Foundation models for a variety of different use cases in Zero-shot, One-shot and k-shot settings.</li>
-      </ul>
-
-      <h3 id="dev-wab">3.5 Dev Expert - Weights and Biases (W&B.ai)</h3>
-      <p><i>Type:</i> Part-time</p>
-      <p><i>Duration:</i> June 2021 - September 2022 (1 year, 3 months)</p>
-      <p><i>About:</i>
-      <ul>
-        <li>Engineering Optimized Deep Learning Training and Inference Kernels with added support for W&B tracking and monitoring tools.</li>
-
-        <li>My work on Kaggle (including Notebooks, Discussion posts and Tweets) amounted to a total of 200+ new users onboarded to the platform (W&B).</li>          
-      </ul> -->
-
-      <h2 id="open_source">4. Open Source Contributions</h2>
-      <p>Below is a tabulated list of all my Open Source contributions.</p>
-      <table>
-        <thead>
-          <tr>
-            <th>Pull Request</th>
-            <th>Organization</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Add Fill-in-the-middle training objective example - PyTorch <a href="https://github.com/huggingface/transformers/pull/27464">#27464</a></td>
-            <td>huggingface/transformers 🤗</td>
-            <td style="color: green">Merged</td>
-          </tr>
-          <tr>
-            <td>Add Number Normalisation for SpeechT5 <a href="https://github.com/huggingface/transformers/pull/25447">#25447</a></td>
-            <td>huggingface/transformers 🤗</td>
-            <td style="color: green">Merged</td>
-          </tr>
-          <tr>
-            <td>Add PoolFormer <a href="https://github.com/huggingface/transformers/pull/15531">#15531</a></td>
-            <td>huggingface/transformers 🤗</td>
-            <td style="color: green">Merged</td>
-          </tr>
-          <tr>
-            <td>Fix Mega chunking error when using decoder-only model <a href="https://github.com/huggingface/transformers/pull/25765">#25765</a></td>
-            <td>huggingface/transformers 🤗</td>
-            <td style="color: green">Merged</td>
-          </tr>
-          <tr>
-            <td>Fix <code>MarianTokenizer</code> to remove metaspace character in <code>decode</code> <a href="https://github.com/huggingface/transformers/pull/26091">#26091</a></td>
-            <td>huggingface/transformers 🤗</td>
-            <td style="color: green">Merged</td>
-          </tr>
-          <tr>
-            <td>Added Model specific output classes to PoolFormer docs <a href="https://github.com/huggingface/transformers/pull/15746">#15746</a></td>
-            <td>huggingface/transformers 🤗</td>
-            <td style="color: green">Merged</td>
-          </tr>
-          <tr>
-            <td>Add LLM Pre-training example <a href="https://github.com/lancedb/vectordb-recipes/pull/73">#73</a></td>
-            <td>lancedb/vectordb-recipes</td>
-            <td style="color: green">Merged</td>
-          </tr>
-          <tr>
-            <td>Add Hinge Loss <a href="https://github.com/deepmind/optax/pull/409">#409</a></td>
-            <td>deepmind/optax</td>
-            <td style="color: green">Merged</td>
-          </tr>
-          <tr>
-            <td>Use <code>monkeypatch.chdir</code> instead of <code>os.chdir</code> in tests <a href="https://github.com/Lightning-AI/lightning/pull/15579">#15579</a></td>
-            <td>Lightning-AI/lightning ⚡️</td>
-            <td style="color: green">Merged</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <!-- <h2 id="talks">5. Talks / Workshops</h2>
-      <p>Below is the collection of the places I have given a talk / workshop at. It is to be noted that these are all the videos "openly" available / organized either exlusively online or in hybrid mode.</p>
-      
-      <h4>5.1 Best Practices and Memory Efficient Coding in PyTorch</h4>
-      <p><i>Date:</i> 14<sup>th</sup> August 2021</p>
-      <div class="video_responsive">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/uQx2bbRzvKI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <section id="education" class="education panel" aria-labelledby="education-title">
+          <div class="panel-heading">
+            <h2 id="education-title">Education</h2>
+          </div>
+          <article class="entry" id="ub" aria-labelledby="bath-title">
+            <div class="entry-heading">
+              <h3 id="bath-title">MSc in Data Science</h3>
+              <p class="entry-date">2023 – 2024</p>
+            </div>
+            <p class="entry-role"><a href="https://www.bath.ac.uk/">University of Bath</a> <span>· Distinction</span></p>
+            <p class="entry-description">For my dissertation, I trained language models at different scales to study scaling laws and look for emergent abilities such as mathematical reasoning. Supervised by <a href="https://researchportal.bath.ac.uk/en/persons/nello-cristianini">Dr Nello Cristianini</a>.</p>
+          </article>
+          <article class="entry" id="ju" aria-labelledby="jecrc-title">
+            <div class="entry-heading">
+              <h3 id="jecrc-title">BTech in Computer Science</h3>
+              <p class="entry-date">2018 – 2022</p>
+            </div>
+            <p class="entry-role">JECRC University <span>· First Division</span></p>
+            <p class="entry-description">Minor in Mathematics &amp; Engineering. Final grade 8.76 / 10 (87.6%).</p>
+          </article>
+        </section>
       </div>
 
-      <h4>5.2 Conversation with Kaggle Notebooks Master Tanay</h4>
-      <p><i>Date:</i> 13<sup>th</sup> December 2021</p>
-        <div class="video_responsive">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/oZdJLKR_h5Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-      
-      <h4>5.3 Hey Kaggle | A Talk on the home of Data Science and Machine Learning</h4>
-      <p><i>Date:</i> 27<sup>th</sup> September 2022</p>
-        <div class="video_responsive">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/0M0xOtwumsw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-      
-      <h4>5.4 Community Conversation : Exploring ML - Global Hack Week - MLH</h4>
-      <p><i>Date:</i> 12<sup>th</sup> February 2023</p>
-        <div class="video_responsive">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/mufHJoqm7e0?start=947" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-      
-      <h4>5.5 Teaching LLMs to infill code - AICamp London</h4>
-      <p><i>Date:</i> 12<sup>th</sup> December 2023</p>
-        <div class="video_responsive">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/l6z5HLhWVVE?si=PEJSL7kzaJ63AxLK&amp;start=1277" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div> -->
-      
-      <h2 id="contact_me">5. Contact Me</h2>
-      <p>
-        I am always up for research and industry collaborations so If you like my work and think we collaborate on something cool, reach out to me via <a href="mailto:heyytanay@gmail.com">email</a> or message me on Twitter <a href="https://twitter.com/serious_mehta">@serious_mehta</a>.
-        <br>
-        You can also connect with me on <a href="https://linkedin.com/in/tanaymehta28">LinkedIn</a>, see my projects on <a href="https://github.com/tanaymeh">Github</a>, see my work on <a href="https://kaggle.com/heyytanay">Kaggle</a> or read my blogs on <a href="https://tanaymehta.com/blog">my blog</a>.
-      </p>
-    </article>
+      <div class="work-output">
+        <section id="writing" class="panel" aria-labelledby="writing-title">
+          <div class="panel-heading">
+            <h2 id="writing-title">Blogs</h2>
+            <a class="panel-link" href="https://www.tanaymehta.com/blog/">All articles <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></a>
+          </div>
+          <ul class="work-list" role="list">
+            <li>
+              <a class="record-link" href="https://www.tanaymehta.com/blog/2025/08/02/p9.html">
+                <span>Fixing LLM Inference Bottlenecks with Custom CUDA Kernels (Simple Kernel)</span>
+                <time datetime="2025-08-02">02 Aug 2025</time>
+                <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
+                <span class="record-note">A fused GELU kernel cut one GPT-2 forward pass from 38.0 to 34.4 ms.</span>
+              </a>
+            </li>
+            <li>
+              <a class="record-link" href="https://www.tanaymehta.com/blog/2025/07/27/p8.html">
+                <span>Fixing LLM Inference Bottlenecks with Custom CUDA Kernels (Profiling)</span>
+                <time datetime="2025-07-27">27 Jul 2025</time>
+                <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
+                <span class="record-note">One matrix-multiply kernel accounted for 33% of GPU time in the GPT-2 trace.</span>
+              </a>
+            </li>
+            <li>
+              <a class="record-link" href="https://www.tanaymehta.com/blog/2024/02/08/p7.html">
+                <span>Curating Custom Datasets for Efficient LLM Training Using Lance</span>
+                <time datetime="2024-02-08">08 Feb 2024</time>
+                <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
+                <span class="record-note">Stream code into Lance and fetch training examples by index without loading the entire dataset.</span>
+              </a>
+            </li>
+            <li>
+              <a class="record-link" href="https://www.tanaymehta.com/blog/2022/03/29/p6.html">
+                <span>Installing CUDA and CUDA Toolkit on Ubuntu</span>
+                <time datetime="2022-03-29">29 Mar 2022</time>
+                <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
+                <span class="record-note">Add NVIDIA’s CUDA Toolkit to <code>PATH</code> and verify the compiler with <code>nvcc --version</code>.</span>
+              </a>
+            </li>
+            <li>
+              <a class="record-link" href="https://www.tanaymehta.com/blog/2022/03/17/p5.html">
+                <span>Fixing Ubuntu’s Refresh Rate Reset After Reboot</span>
+                <time datetime="2022-03-17">17 Mar 2022</time>
+                <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
+                <span class="record-note">A delayed <code>xrandr</code> cron job restored 120 Hz after reboot on Ubuntu.</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section id="featured_prs" class="panel" aria-labelledby="featured-prs-title">
+          <div class="panel-heading">
+            <h2 id="featured-prs-title">Featured Pull Requests</h2>
+          </div>
+          <p class="repository" id="featured-repository">huggingface/transformers</p>
+          <ul class="contributions" role="list" aria-labelledby="featured-repository">
+            <li>
+              <a class="contribution" href="https://github.com/huggingface/transformers/pull/15531">
+                <span class="record-copy">
+                  <span>PoolFormer integration</span>
+                  <span class="record-note">Added the PoolFormer vision architecture to Transformers.</span>
+                </span>
+                <span class="pull-request">#15531 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
+              </a>
+            </li>
+            <li>
+              <a class="contribution" href="https://github.com/huggingface/transformers/pull/27464">
+                <span class="record-copy">
+                  <span>Fill-in-the-middle training for PyTorch</span>
+                  <span class="record-note">Added an example for training language models to fill in missing text.</span>
+                </span>
+                <span class="pull-request">#27464 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
+              </a>
+            </li>
+            <li>
+              <a class="contribution" href="https://github.com/huggingface/transformers/pull/25447">
+                <span class="record-copy">
+                  <span>Number normalization for SpeechT5</span>
+                  <span class="record-note">Enabled text-to-speech to read numbers, currencies, and percentages aloud.</span>
+                </span>
+                <span class="pull-request">#25447 <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></span>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <section id="open_source" class="panel projects" aria-labelledby="archive-title">
+      <div class="panel-heading">
+        <h2 id="archive-title">Open Source Projects</h2>
+        <a class="panel-link" href="https://github.com/tanaymeh">GitHub <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg></a>
+      </div>
+      <ul class="work-list" role="list">
+        <li>
+          <a class="record-link" href="https://github.com/tanaymeh/llc">
+            <span class="record-copy">
+              <span>LLC</span>
+              <span class="record-note">Coordinates parallel coding agents in a local workspace with live progress and resumable sessions.</span>
+            </span>
+            <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
+          </a>
+        </li>
+        <li>
+          <a class="record-link" href="https://github.com/tanaymeh/mamba-train">
+            <span class="record-copy">
+              <span>Mamba Train</span>
+              <span class="record-note">Fine-tunes Mamba to fill in missing code, using non-overlapping token windows from Lance datasets.</span>
+            </span>
+            <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
+          </a>
+        </li>
+        <li>
+          <a class="record-link" href="https://github.com/tanaymeh/nadl">
+            <span class="record-copy">
+              <span>NADL</span>
+              <span class="record-note">Computes first-order gradients through NumPy tensor operations, with tests against TensorFlow.</span>
+            </span>
+            <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
+          </a>
+        </li>
+        <li>
+          <a class="record-link" href="https://github.com/tanaymeh/llm-transpiler">
+            <span class="record-copy">
+              <span>LLM Transpiler</span>
+              <span class="record-note">Prototypes Java-to-Python migration across files with dependency-aware parallel translation and compilation retries.</span>
+            </span>
+            <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
+          </a>
+        </li>
+      </ul>
+    </section>
   </main>
 
-  <script>
-    // Theme switch
-    const toggle = document.querySelector('.color_mode');
-    const body = document.querySelector('body');
-    const date = document.querySelector('#date_upd');
- 
-    // Update date and time every time page loads
-    const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    const d = new Date();
-    let name = month[d.getMonth()];
-    let year = d.getFullYear();
-    date.innerHTML = name + ' ' + year;
-
-    toggle.addEventListener('click', () => {
-        if (body.classList.contains('latex-dark')){
-            toggle.innerHTML = "🌑";
-            body.classList.remove('latex-dark');
-            body.classList.add('latex-light');
-            toggle.style.backgroundColor = '#F9FAFB';
-        }
-        else{
-            toggle.innerHTML = "🌕";
-            body.classList.remove('latex-light')
-            body.classList.add('latex-dark');
-            toggle.style.backgroundColor = '#292929';
-        }
-    })
-    MathJax = {
-      tex: {
-        inlineMath: [['$', '$'],],
-      },
-    }
-    const typeFaceToggle = document.getElementById('typeface-toggle')
-    const typeface = document.getElementById('typeface')
-    typeFaceToggle.addEventListener('click', () => {
-      document.body.classList.toggle('libertinus')
-      typeface.textContent = document.body.classList.contains('libertinus') ? 'Libertinus' : 'Latin Modern'
-    })
-
-    const darkModeToggle = document.getElementById('dark-mode-toggle')
-    darkModeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('latex-dark')
-    })
-  </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <script async src="prism/prism.js"></script>
-
-  <script async defer data-domain="latex.now.sh" src="https://plausible.io/js/plausible.js"></script>
+  <footer class="wrap site-footer" id="contact_me" aria-labelledby="contact-title">
+    <div class="contact">
+      <div>
+        <h2 id="contact-title">Get in touch</h2>
+        <p>For engineering and research collaborations.</p>
+      </div>
+      <a class="contact-email" href="mailto:heyytanay@gmail.com">
+        heyytanay@gmail.com <svg class="icon" aria-hidden="true"><use href="#arrow-external"/></svg>
+      </a>
+    </div>
+    <div class="footer-bar">
+      <nav aria-label="Elsewhere">
+        <a href="https://www.linkedin.com/in/tanaymehta28">LinkedIn</a>
+        <a href="https://x.com/serious_mehta">X</a>
+        <a href="https://www.tanaymehta.com/blog/">Blog</a>
+      </nav>
+      <a class="back-to-top" href="#top">Back to top <svg class="icon" aria-hidden="true"><use href="#arrow-up"/></svg></a>
+    </div>
+  </footer>
 </body>
 </html>

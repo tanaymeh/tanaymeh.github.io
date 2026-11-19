@@ -21,9 +21,9 @@
   --accent-hover: #ffa07c;
   --on-accent: #10110f;
   --scrollbar: #666b5b;
-  --scan-dot: #ff83556b;
-  --scan-glow: #ff835533;
-  --scan-edge: #ffb08a;
+  --scan-dot: #ffb08a8f;
+  --scan-glow: #ff83551a;
+  --scan-edge: #ffd0b8;
   --display: "Space Grotesk", system-ui, sans-serif;
   --mono: ui-monospace, "SF Mono", Consolas, monospace;
   --gutter: clamp(1rem, 4vw, 4rem);
@@ -45,8 +45,7 @@
   --accent-hover: #822e13;
   --on-accent: #fffaf5;
   --scrollbar: #778070;
-  --scan-dot: #a0391866;
-  --scan-glow: #a0391833;
+  --scan-dot: #a039187a;
   --scan-edge: #a03918;
 }
 
@@ -59,7 +58,6 @@ html {
 }
 
 body {
-  isolation: isolate;
   margin: 0;
   background: var(--canvas);
   color: var(--text);
@@ -68,14 +66,14 @@ body {
 
 .theme-scan {
   position: fixed;
-  z-index: -1;
+  z-index: 1;
   inset: 0 0 auto;
-  height: 8rem;
-  border-bottom: 1px solid var(--scan-edge);
+  height: clamp(8rem, 24vh, 15rem);
+  border-bottom: 2px solid var(--scan-edge);
   background:
-    linear-gradient(transparent, var(--scan-glow)),
-    radial-gradient(circle, var(--scan-dot) .75px, transparent 1px) 0 0 / 14px 14px;
-  mask-image: linear-gradient(transparent, #000 80%);
+    linear-gradient(transparent 15%, var(--scan-glow)),
+    radial-gradient(circle, var(--scan-dot) 1px, transparent 1.35px) 0 0 / 16px 16px;
+  mask-image: linear-gradient(transparent, #000 72%);
   opacity: 0;
   pointer-events: none;
 }
@@ -129,10 +127,6 @@ a {
   color: inherit;
   text-decoration-thickness: 1px;
   text-underline-offset: .2em;
-}
-
-a:hover {
-  color: var(--accent);
 }
 
 .icon-library {
@@ -245,6 +239,7 @@ a:hover {
 
 .monogram:hover {
   border-color: var(--accent);
+  color: var(--accent);
 }
 
 .main-nav {
@@ -263,7 +258,8 @@ a:hover {
   text-decoration: none;
 }
 
-.main-nav a:hover, .footer-bar a:hover, .panel-link:hover {
+.main-nav a:hover, .footer-bar a:hover, .panel-link:hover,
+.profile-data a:hover, .entry a:hover {
   color: var(--accent);
 }
 

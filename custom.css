@@ -312,8 +312,17 @@ a:hover {
 .work-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
   margin-top: 1rem;
+}
+
+.work-history, .work-output {
+  min-width: 0;
   border: 1px solid var(--rule);
+}
+
+.work-history {
   background: var(--surface);
 }
 
@@ -333,7 +342,7 @@ a:hover {
   background: var(--raised);
 }
 
-.education {
+.work-grid .panel + .panel {
   border-top: 1px solid var(--rule);
 }
 
@@ -387,15 +396,7 @@ a:hover {
 }
 
 .work-output {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  min-width: 0;
-  border-left: 1px solid var(--rule);
   background: var(--inset);
-}
-
-.archive {
-  border-top: 1px solid var(--rule);
 }
 
 .panel-link {
@@ -408,7 +409,7 @@ a:hover {
   list-style: none;
 }
 
-.work-list li + li, .pull-requests {
+.work-list li + li {
   border-top: 1px solid var(--rule);
 }
 
@@ -435,6 +436,11 @@ a:hover {
 
 .record-copy {
   min-width: 0;
+}
+
+#writing .record-note {
+  grid-column: 1 / -1;
+  margin-top: 0;
 }
 
 .record-link time, .record-link > .icon {
@@ -530,7 +536,7 @@ a:hover {
   white-space: nowrap;
 }
 
-.about, .site-footer {
+.about, .projects, .pull-requests, .site-footer {
   margin-top: 1rem;
   border: 1px solid var(--rule);
   background: var(--surface);
@@ -640,13 +646,6 @@ a:hover {
 @media (max-width: 53rem) {
   .work-grid, .about-body {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .work-output {
-    grid-column: auto;
-    grid-row: auto;
-    border-top: 1px solid var(--rule);
-    border-left: 0;
   }
 
   .kaggle-record {
